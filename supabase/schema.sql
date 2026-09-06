@@ -98,7 +98,7 @@ grant usage on schema public to anon, authenticated;
 grant select, insert, update, delete on
   public.profiles, public.swipes, public.matches, public.messages
   to authenticated;
-grant execute on function public.discover_profiles(int) to authenticated;
+-- (the grant for discover_profiles() is in section 4, after the function exists)
 
 -- profiles: any signed-in user can read; you may only write your own row
 drop policy if exists "profiles read"      on public.profiles;
@@ -180,6 +180,8 @@ as $$
     p.updated_at desc
   limit greatest(1, least(limit_count, 100));
 $$;
+
+grant execute on function public.discover_profiles(int) to authenticated;
 
 -- ---------------------------------------------------------------------------
 -- 5. Realtime — let the client subscribe to new matches and messages
