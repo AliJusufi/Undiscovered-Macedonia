@@ -100,15 +100,31 @@ grant select, insert, update, delete on
   to authenticated;
 -- (the grant for discover_profiles() is in section 4, after the function exists)
 
--- profiles: any signed-in user can read; you may only write your own row
+-- profiles: you can read your OWN row and the rows of people you've matched
+-- with. Everyone else's profile only reaches you through discover_profiles()
+-- (a SECURITY DEFINER function, below), which returns just the swipe
+-- candidates and nothing else. You may only create/update your own row.
 drop policy if exists "profiles read"      on public.profiles;
 drop policy if exists "profiles write own" on public.profiles;
+drop policy if exists "profiles insert own" on public.profiles;
+drop policy if exists "profiles update own" on public.profiles;
 create policy "profiles read"
   on public.profiles for select
   to authenticated
-  using (true);
-create policy "profiles write own"
-  on public.profiles for all
+  using (
+    id = auth.uid()
+    or exists (
+      select 1 from public.matches m
+      where (m.a = auth.uid() and m.b = public.profiles.id)
+         or (m.b = auth.uid() and m.a = public.profiles.id)
+    )
+  );
+create policy "profiles insert own"
+  on public.profiles for insert
+  to authenticated
+  with check (id = auth.uid());
+create policy "profiles update own"
+  on public.profiles for update
   to authenticated
   using (id = auth.uid())
   with check (id = auth.uid());
@@ -152,11 +168,14 @@ create policy "messages send"
 --    (interest-overlap ordering is awkward over REST, so expose it as an RPC)
 -- ---------------------------------------------------------------------------
 
+-- SECURITY DEFINER: runs with the function owner's rights so it can see the
+-- profiles table past the row-level policy above. It still scopes everything
+-- to auth.uid(), so a caller only ever gets their own swipe candidates.
 create or replace function public.discover_profiles(limit_count int default 30)
 returns setof public.profiles
 language sql
 stable
-security invoker
+security definer
 set search_path = public
 as $$
   with me as (select * from public.profiles where id = auth.uid())
@@ -181,6 +200,7 @@ as $$
   limit greatest(1, least(limit_count, 100));
 $$;
 
+revoke execute on function public.discover_profiles(int) from public, anon;
 grant execute on function public.discover_profiles(int) to authenticated;
 
 -- ---------------------------------------------------------------------------
