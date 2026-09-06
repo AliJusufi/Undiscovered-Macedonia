@@ -10,7 +10,8 @@ Built as a bachelor thesis project: plain HTML, CSS and JavaScript with **no bui
 | `index.html` | Home — hero, destination and trip previews, guides, plan-a-trip form |
 | `explore.html` | All destinations, an interactive Leaflet map, food, wildlife, traditions |
 | `trips.html` | Full day-by-day trip write-ups, experiences, departures table |
-| `travelers.html` | "Meet Travellers" — a travel-buddy matching prototype |
+| `travelers.html` | "Meet Travellers" — offline matching prototype (sample data, localStorage) |
+| `travelers-live.html` | The same feature on a real Supabase backend — accounts, DB, live matches & chat. Setup: [`supabase/README.md`](supabase/README.md) |
 | `credits.html` | Honest project / photo-licensing notes |
 | `thesis-figures.html` | Figures generated for the written thesis |
 
@@ -53,11 +54,13 @@ files are git-ignored.
 .
 ├── index.html, explore.html, trips.html, travelers.html, credits.html
 ├── styles.css, travelers.css      # styles
-├── script.js, travelers.js        # behaviour
+├── script.js, travelers.js        # behaviour (prototype)
+├── travelers-live.js, travelers-config.js  # Meet Travellers on Supabase
 ├── serve.js                       # tiny static dev server
 ├── Media/                         # images (see licensing note below)
 ├── ai-proxy/                      # UMac assistant proxies + setup docs
-└── MATCHING-BACKEND.md            # Supabase schema for the thesis "future work" chapter
+├── supabase/                      # schema.sql + setup guide for travelers-live
+└── MATCHING-BACKEND.md            # the design write-up behind supabase/schema.sql
 ```
 
 ## Formatting
