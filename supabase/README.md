@@ -67,7 +67,7 @@ command, never in a file the browser loads and never in git.
 ## 6. Test it
 
 1. `npm run dev`, open <http://localhost:4173/travelers-live.html>.
-2. Sign in as `lena@demo.undiscovered` / `traveller2026` (password field), or
+2. Sign in as `lena@demo.mk` / `traveller2026` (password field), or
    use your own email with the password blank to get a magic link.
 3. Fill your profile and save — the seeded travellers appear in the deck.
 4. **To see a match**, sign in as one of them in a private/incognito window

@@ -40,7 +40,7 @@ const d = (offset) => {
 
 const PEOPLE = [
   {
-    email: "lena@demo.undiscovered",
+    email: "lena@demo.mk",
     name: "Lena",
     country: "Germany",
     age: 28,
@@ -51,7 +51,7 @@ const PEOPLE = [
     bio: "Three weeks around the Balkans. Want to walk in Mavrovo and Pelister, camera in hand.",
   },
   {
-    email: "marco@demo.undiscovered",
+    email: "marco@demo.mk",
     name: "Marco",
     country: "Italy",
     age: 34,
@@ -62,7 +62,7 @@ const PEOPLE = [
     bio: "Here for Tikveš wineries and Ohrid. Looking for people to share long lunches with.",
   },
   {
-    email: "priya@demo.undiscovered",
+    email: "priya@demo.mk",
     name: "Priya",
     country: "India",
     age: 25,
@@ -73,7 +73,7 @@ const PEOPLE = [
     bio: "Art history student. Skopje and Ohrid churches are the whole reason I came.",
   },
   {
-    email: "tom@demo.undiscovered",
+    email: "tom@demo.mk",
     name: "Tom",
     country: "UK",
     age: 31,
@@ -84,7 +84,7 @@ const PEOPLE = [
     bio: "Trail runner. Planning Matka kayaking and a night on Pelister. Keen for a hiking buddy.",
   },
   {
-    email: "sofia@demo.undiscovered",
+    email: "sofia@demo.mk",
     name: "Sofia",
     country: "Portugal",
     age: 27,
@@ -95,7 +95,7 @@ const PEOPLE = [
     bio: "No plan, just Ohrid, a lake, and good food. Happy to be shown around.",
   },
   {
-    email: "amara@demo.undiscovered",
+    email: "amara@demo.mk",
     name: "Amara",
     country: "USA",
     age: 30,
