@@ -14,11 +14,13 @@
     "proxy": "node ai-proxy/local-server-gemini.js",
     "proxy:anthropic": "node ai-proxy/local-server.js",
     "seed": "node supabase/seed.mjs",
+    "shots": "node scripts/screenshots.mjs",
     "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
     "format:check": "prettier --check \"**/*.{html,css,js,json,md}\""
   },
   "devDependencies": {
     "@supabase/supabase-js": "^2.115.0",
+    "playwright-core": "^1.63.0",
     "prettier": "^3.3.3"
   }
 }

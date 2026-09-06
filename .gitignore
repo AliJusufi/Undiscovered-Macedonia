@@ -26,3 +26,6 @@ npm-debug.log*
 dist/
 .cache/
 *.tmp
+
+# Generated thesis/poster screenshots (regenerate with: npm run shots)
+thesis-screenshots/
