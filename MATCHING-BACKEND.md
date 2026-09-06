@@ -12,14 +12,14 @@ and code changes. It is written so it can be built, or cited in the thesis as fu
 
 ## What has to move server-side
 
-| Piece | Prototype | Production |
-|---|---|---|
-| **Identity** | none | each person is a signed-in account |
-| **Profiles** | `SEED` array | rows in a `profiles` table, read by everyone |
-| **Swipes** | `localStorage` map | rows in a `swipes` table |
+| Piece        | Prototype                                           | Production                                                                       |
+| ------------ | --------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Identity** | none                                                | each person is a signed-in account                                               |
+| **Profiles** | `SEED` array                                        | rows in a `profiles` table, read by everyone                                     |
+| **Swipes**   | `localStorage` map                                  | rows in a `swipes` table                                                         |
 | **Matching** | `≥2 shared interests OR 35% chance`, in the browser | a match exists only when **both** people swiped "like" — decided by the database |
-| **Chat** | `replyTo()` canned text | real messages between two people, delivered live |
-| **Storage** | one browser | a database, so state follows the user to any device |
+| **Chat**     | `replyTo()` canned text                             | real messages between two people, delivered live                                 |
+| **Storage**  | one browser                                         | a database, so state follows the user to any device                              |
 
 ---
 
@@ -148,14 +148,14 @@ limit 20;
 
 The front-end barely changes — only the data layer.
 
-| Now | Replace with |
-|---|---|
-| `SEED` array | `supabase.from('profiles').select().<discovery query>` |
-| `LS.get/LS.set` | `supabase.from(...).insert/select` |
+| Now                     | Replace with                                                                        |
+| ----------------------- | ----------------------------------------------------------------------------------- |
+| `SEED` array            | `supabase.from('profiles').select().<discovery query>`                              |
+| `LS.get/LS.set`         | `supabase.from(...).insert/select`                                                  |
 | `decide()`'s match rule | `supabase.from('swipes').insert({ target, liked })` — the trigger decides the match |
-| polling for matches | `supabase.channel('matches').on('postgres_changes', …)` — realtime |
-| `replyTo()` | delete it; `supabase.channel('messages:'+matchId).on('INSERT', renderMessage)` |
-| profile save | `supabase.from('profiles').upsert({ id: user.id, …fields })` |
+| polling for matches     | `supabase.channel('matches').on('postgres_changes', …)` — realtime                  |
+| `replyTo()`             | delete it; `supabase.channel('messages:'+matchId).on('INSERT', renderMessage)`      |
+| profile save            | `supabase.from('profiles').upsert({ id: user.id, …fields })`                        |
 
 Auth is `supabase.auth.signInWithOtp({ email })` (magic link) or
 `signInWithOAuth({ provider: 'google' })`.

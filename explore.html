@@ -1,399 +1,733 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Explore North Macedonia — destinations, food, wildlife &amp; culture</title>
-<meta name="description" content="The full picture: every destination we cover, a map, what to eat, the wildlife still out there, and the traditions that are still in use." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E%E2%9C%88%EF%B8%8F%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Epilogue:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="" />
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body class="subpage">
-<a class="skip-link" href="#main">Skip to content</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Explore North Macedonia — destinations, food, wildlife &amp; culture</title>
+    <meta
+      name="description"
+      content="The full picture: every destination we cover, a map, what to eat, the wildlife still out there, and the traditions that are still in use."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Explore North Macedonia" />
+    <meta
+      property="og:description"
+      content="Every destination we cover, a map, what to eat, the wildlife still out there, and the traditions still in use."
+    />
+    <meta
+      property="og:url"
+      content="https://alijusufi.github.io/Undiscovered-Macedonia/explore.html"
+    />
+    <meta
+      property="og:image"
+      content="https://alijusufi.github.io/Undiscovered-Macedonia/Media/matka-boats.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E%E2%9C%88%EF%B8%8F%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Epilogue:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="subpage">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header scrolled" id="siteHeader">
-  <div class="wrap header-inner">
-    <a class="brand" href="index.html">
-      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 3.5c-1-.9-3.2-.5-5.5 1L4 3 2.5 4.6 10 9l-3 4-3.5-.5L2 14.4 6 17l2.6 4 1.9-1.5-.5-3.6 4-3 4.4 7.5L24 16l-1.5-12.5c.02-.02.03-.03 0 0Z" fill="currentColor"/></svg>
-      <span>Undiscovered&nbsp;Macedonia</span>
-    </a>
-    <nav class="main-nav" id="mainNav" aria-label="Primary">
-      <a href="explore.html" aria-current="page">Explore</a>
-      <a href="trips.html">Trips</a>
-      <a href="travelers.html">Travellers</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#plan" class="nav-plan">Plan a trip</a>
-    </nav>
-    <a href="index.html#plan" class="btn btn-pill header-cta">
-      Plan a trip
-      <span class="btn-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-    </a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+    <header class="site-header scrolled" id="siteHeader">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M22 3.5c-1-.9-3.2-.5-5.5 1L4 3 2.5 4.6 10 9l-3 4-3.5-.5L2 14.4 6 17l2.6 4 1.9-1.5-.5-3.6 4-3 4.4 7.5L24 16l-1.5-12.5c.02-.02.03-.03 0 0Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>Undiscovered&nbsp;Macedonia</span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Primary">
+          <a href="explore.html" aria-current="page">Explore</a>
+          <a href="trips.html">Trips</a>
+          <a href="travelers.html">Travellers</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#plan" class="nav-plan">Plan a trip</a>
+        </nav>
+        <a href="index.html#plan" class="btn btn-pill header-cta">
+          Plan a trip
+          <span class="btn-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M5 12h14M13 6l6 6-6 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
 
-<main id="main">
-  <div class="page-hero">
-    <div class="wrap">
-      <p class="eyebrow">Explore</p>
-      <h1 class="page-title">The whole country, more or less</h1>
-      <p class="page-lede">Every place we take people, plotted on a map — plus what to eat, what's still living in the forests, and the traditions that never stopped.</p>
-      <nav class="page-jump" aria-label="On this page">
-        <a href="#destinations">Destinations</a>
-        <a href="#map">Map</a>
-        <a href="#food">Food &amp; drink</a>
-        <a href="#wildlife">Wildlife</a>
-        <a href="#traditions">Traditions</a>
-        <a href="#journal">Journal</a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- DESTINATIONS -->
-  <section class="section" id="destinations">
-    <div class="wrap">
-      <header class="section-head">
-        <div>
-          <p class="eyebrow">Where to go</p>
-          <h2 class="section-title">Destinations</h2>
+    <main id="main">
+      <div class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">Explore</p>
+          <h1 class="page-title">The whole country, more or less</h1>
+          <p class="page-lede">
+            Every place we take people, plotted on a map — plus what to eat, what's still living in
+            the forests, and the traditions that never stopped.
+          </p>
+          <nav class="page-jump" aria-label="On this page">
+            <a href="#destinations">Destinations</a>
+            <a href="#map">Map</a>
+            <a href="#food">Food &amp; drink</a>
+            <a href="#wildlife">Wildlife</a>
+            <a href="#traditions">Traditions</a>
+            <a href="#journal">Journal</a>
+          </nav>
         </div>
-        <p class="section-note">Eight places most trips are built around, and fourteen more that reward a detour.</p>
-      </header>
-
-      <div class="dest-grid">
-        <article class="dest-card dest-lg">
-          <img src="Media/istockphoto-1889809355-612x612.jpg" alt="Church of St. John at Kaneo on a cliff above Lake Ohrid" />
-          <div class="dest-body">
-            <h3>Ohrid</h3>
-            <p>One of Europe's oldest lakes, UNESCO-listed, ringed by frescoed churches. The old town is walkable, the water is clean into September, and you'll want a night more than you booked.</p>
-          </div>
-        </article>
-
-        <article class="dest-card">
-          <img src="Media/istockphoto-478995048-612x612.jpg" alt="Stone Bridge over the Vardar at sunset in Skopje" />
-          <div class="dest-body">
-            <h3>Skopje</h3>
-            <p>Ottoman bazaar on one bank, a modernist rebuild after the 1963 earthquake on the other, and a lot of large monuments in between. Mother Teresa was born here.</p>
-          </div>
-        </article>
-
-        <article class="dest-card">
-          <img src="Media/istockphoto-637429878-612x612.jpg" alt="Green water and cliffs of Matka Canyon" />
-          <div class="dest-body">
-            <h3>Matka Canyon</h3>
-            <p>Thirty minutes from Skopje: a dammed gorge on the Treska with kayak hire, a boat trip into Vrelo Cave, and paths along the cliffs.</p>
-          </div>
-        </article>
-
-        <article class="dest-card">
-          <img src="Media/mavrovo-church.webp" alt="The half-submerged Church of St. Nicholas standing in the green water of Lake Mavrovo" />
-          <div class="dest-body">
-            <h3>Mavrovo</h3>
-            <p>The western national park — high peaks, a reservoir lake with a half-drowned church, the country's main ski slopes, and the best odds of seeing something wild.</p>
-          </div>
-        </article>
-
-        <article class="dest-card">
-          <img src="Media/istockphoto-1226373490-612x612.jpg" alt="Široko Sokak pedestrian street lined with 19th-century buildings in Bitola" />
-          <div class="dest-body">
-            <h3>Bitola</h3>
-            <p>The "City of Consuls" — a long neoclassical café street, the Roman ruins of Heraclea Lyncestis, and Pelister National Park rising right behind.</p>
-          </div>
-        </article>
-
-        <article class="dest-card">
-          <img src="Media/istockphoto-696102228-612x612.jpg" alt="Winding trail through yellow-flowering hills" />
-          <div class="dest-body">
-            <h3>Kruševo</h3>
-            <p>The highest town in the country, and a well-kept 19th-century one. People come up to paraglide off the ridge and to get above the heat.</p>
-          </div>
-        </article>
-
-        <article class="dest-card">
-          <img src="Media/popova-sapka.jpg" alt="Ski chairlift climbing an open snow slope in the Šar Mountains" />
-          <div class="dest-body">
-            <h3>Popova Šapka</h3>
-            <p>A ski and hiking resort on the Šar Mountains plateau above Tetovo — a chairlift up into open, high country.</p>
-          </div>
-        </article>
-
-        <article class="dest-card">
-          <img src="Media/pelister-lake.jpg" alt="A round glacial lake in the bare high grassland of Pelister National Park" />
-          <div class="dest-body">
-            <h3>Pelister</h3>
-            <p>National park on Baba Mountain — the glacial "Pelister's Eyes" lakes, stands of rare molika pine, and a long view down over Bitola.</p>
-          </div>
-        </article>
       </div>
 
-      <h3 class="subhead">More places worth the detour</h3>
-      <ul class="place-list">
-        <li><span class="place-name">Struga</span><span class="place-desc">Where the Black Drim leaves Lake Ohrid — quieter pebble beaches, the Kališta cave monastery, and the Struga Poetry Evenings every August.</span></li>
-        <li><span class="place-name">Prilep</span><span class="place-desc">"The city beneath Marko's Towers", a fortress on bare granite. Tobacco and marble country, with Treskavec monastery and Roman Heraclea nearby.</span></li>
-        <li><span class="place-name">Tetovo</span><span class="place-desc">Home of the Šarena Džamija — the Painted Mosque — at the foot of the Šar Mountains.</span></li>
-        <li><span class="place-name">Strumica</span><span class="place-desc">A warm south-eastern valley town: spring carnival, the Kolešino and Smolare waterfalls, and the peppers that make the best ajvar.</span></li>
-        <li><span class="place-name">Dojran</span><span class="place-desc">A warm, shallow lake on the Greek border — easy swimming, good birdwatching, and about as quiet as the country gets.</span></li>
-        <li><span class="place-name">Kratovo</span><span class="place-desc">Built inside an extinct volcano's crater and stitched together by old stone bridges and towers.</span></li>
-        <li><span class="place-name">Berovo</span><span class="place-desc">Pine forest, a small mountain lake, and homemade cheese and honey in the eastern Maleševo highlands.</span></li>
-        <li><span class="place-name">Vevčani</span><span class="place-desc">A spring-fed village above Struga, known for its gently surreal carnival in mid-January.</span></li>
-        <li><span class="place-name">Stobi</span><span class="place-desc">A Roman and early-Byzantine city with mosaics, theatres and basilicas, right by the motorway in the Tikveš wine region.</span></li>
-        <li><span class="place-name">Kokino</span><span class="place-desc">A 3,800-year-old megalithic observatory on a volcanic hill in the north-east — markers cut into the rock track the sun and moon.</span></li>
-        <li><span class="place-name">Kuklica</span><span class="place-desc">The "Stone Dolls" near Kratovo — a field of eroded rock pillars with a wedding legend to explain them.</span></li>
-        <li><span class="place-name">Lake Prespa</span><span class="place-desc">Higher and wilder than Ohrid, shared with Greece and Albania — apple orchards, pelicans, and the ruined churches of Golem Grad island.</span></li>
-        <li><span class="place-name">Galičica National Park</span><span class="place-desc">The 24,000-hectare karst ridge between Ohrid and Prespa — a panoramic road, Magaro peak at 2,254 m, wild horses, over 1,600 plant species.</span></li>
-        <li><span class="place-name">Mother Teresa Memorial House</span><span class="place-desc">In central Skopje, on the spot where she was born in 1910 — a small museum and a glass chapel.</span></li>
-      </ul>
+      <!-- DESTINATIONS -->
+      <section class="section" id="destinations">
+        <div class="wrap">
+          <header class="section-head">
+            <div>
+              <p class="eyebrow">Where to go</p>
+              <h2 class="section-title">Destinations</h2>
+            </div>
+            <p class="section-note">
+              Eight places most trips are built around, and fourteen more that reward a detour.
+            </p>
+          </header>
 
-      <h3 class="subhead" id="map">On the map</h3>
-      <p class="map-note">Everything above, plotted. Click a marker for a one-line note; green markers are the national parks and reserves.</p>
-      <div id="macedonia-map" class="mk-map" role="img" aria-label="Map of North Macedonia with the destinations covered on this page"></div>
-    </div>
-  </section>
+          <div class="dest-grid">
+            <article class="dest-card dest-lg">
+              <img
+                src="Media/istockphoto-1889809355-612x612.jpg"
+                alt="Church of St. John at Kaneo on a cliff above Lake Ohrid"
+              />
+              <div class="dest-body">
+                <h3>Ohrid</h3>
+                <p>
+                  One of Europe's oldest lakes, UNESCO-listed, ringed by frescoed churches. The old
+                  town is walkable, the water is clean into September, and you'll want a night more
+                  than you booked.
+                </p>
+              </div>
+            </article>
 
-  <!-- FOOD & DRINK -->
-  <section class="section section-muted" id="food">
-    <div class="wrap">
-      <header class="section-head">
-        <div>
-          <p class="eyebrow">What to eat</p>
-          <h2 class="section-title">A taste of Macedonia</h2>
+            <article class="dest-card">
+              <img
+                src="Media/istockphoto-478995048-612x612.jpg"
+                alt="Stone Bridge over the Vardar at sunset in Skopje"
+              />
+              <div class="dest-body">
+                <h3>Skopje</h3>
+                <p>
+                  Ottoman bazaar on one bank, a modernist rebuild after the 1963 earthquake on the
+                  other, and a lot of large monuments in between. Mother Teresa was born here.
+                </p>
+              </div>
+            </article>
+
+            <article class="dest-card">
+              <img
+                src="Media/istockphoto-637429878-612x612.jpg"
+                alt="Green water and cliffs of Matka Canyon"
+              />
+              <div class="dest-body">
+                <h3>Matka Canyon</h3>
+                <p>
+                  Thirty minutes from Skopje: a dammed gorge on the Treska with kayak hire, a boat
+                  trip into Vrelo Cave, and paths along the cliffs.
+                </p>
+              </div>
+            </article>
+
+            <article class="dest-card">
+              <img
+                src="Media/mavrovo-church.webp"
+                alt="The half-submerged Church of St. Nicholas standing in the green water of Lake Mavrovo"
+              />
+              <div class="dest-body">
+                <h3>Mavrovo</h3>
+                <p>
+                  The western national park — high peaks, a reservoir lake with a half-drowned
+                  church, the country's main ski slopes, and the best odds of seeing something wild.
+                </p>
+              </div>
+            </article>
+
+            <article class="dest-card">
+              <img
+                src="Media/istockphoto-1226373490-612x612.jpg"
+                alt="Široko Sokak pedestrian street lined with 19th-century buildings in Bitola"
+              />
+              <div class="dest-body">
+                <h3>Bitola</h3>
+                <p>
+                  The "City of Consuls" — a long neoclassical café street, the Roman ruins of
+                  Heraclea Lyncestis, and Pelister National Park rising right behind.
+                </p>
+              </div>
+            </article>
+
+            <article class="dest-card">
+              <img
+                src="Media/istockphoto-696102228-612x612.jpg"
+                alt="Winding trail through yellow-flowering hills"
+              />
+              <div class="dest-body">
+                <h3>Kruševo</h3>
+                <p>
+                  The highest town in the country, and a well-kept 19th-century one. People come up
+                  to paraglide off the ridge and to get above the heat.
+                </p>
+              </div>
+            </article>
+
+            <article class="dest-card">
+              <img
+                src="Media/popova-sapka.jpg"
+                alt="Ski chairlift climbing an open snow slope in the Šar Mountains"
+              />
+              <div class="dest-body">
+                <h3>Popova Šapka</h3>
+                <p>
+                  A ski and hiking resort on the Šar Mountains plateau above Tetovo — a chairlift up
+                  into open, high country.
+                </p>
+              </div>
+            </article>
+
+            <article class="dest-card">
+              <img
+                src="Media/pelister-lake.jpg"
+                alt="A round glacial lake in the bare high grassland of Pelister National Park"
+              />
+              <div class="dest-body">
+                <h3>Pelister</h3>
+                <p>
+                  National park on Baba Mountain — the glacial "Pelister's Eyes" lakes, stands of
+                  rare molika pine, and a long view down over Bitola.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <h3 class="subhead">More places worth the detour</h3>
+          <ul class="place-list">
+            <li>
+              <span class="place-name">Struga</span
+              ><span class="place-desc"
+                >Where the Black Drim leaves Lake Ohrid — quieter pebble beaches, the Kališta cave
+                monastery, and the Struga Poetry Evenings every August.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Prilep</span
+              ><span class="place-desc"
+                >"The city beneath Marko's Towers", a fortress on bare granite. Tobacco and marble
+                country, with Treskavec monastery and Roman Heraclea nearby.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Tetovo</span
+              ><span class="place-desc"
+                >Home of the Šarena Džamija — the Painted Mosque — at the foot of the Šar
+                Mountains.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Strumica</span
+              ><span class="place-desc"
+                >A warm south-eastern valley town: spring carnival, the Kolešino and Smolare
+                waterfalls, and the peppers that make the best ajvar.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Dojran</span
+              ><span class="place-desc"
+                >A warm, shallow lake on the Greek border — easy swimming, good birdwatching, and
+                about as quiet as the country gets.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Kratovo</span
+              ><span class="place-desc"
+                >Built inside an extinct volcano's crater and stitched together by old stone bridges
+                and towers.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Berovo</span
+              ><span class="place-desc"
+                >Pine forest, a small mountain lake, and homemade cheese and honey in the eastern
+                Maleševo highlands.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Vevčani</span
+              ><span class="place-desc"
+                >A spring-fed village above Struga, known for its gently surreal carnival in
+                mid-January.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Stobi</span
+              ><span class="place-desc"
+                >A Roman and early-Byzantine city with mosaics, theatres and basilicas, right by the
+                motorway in the Tikveš wine region.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Kokino</span
+              ><span class="place-desc"
+                >A 3,800-year-old megalithic observatory on a volcanic hill in the north-east —
+                markers cut into the rock track the sun and moon.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Kuklica</span
+              ><span class="place-desc"
+                >The "Stone Dolls" near Kratovo — a field of eroded rock pillars with a wedding
+                legend to explain them.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Lake Prespa</span
+              ><span class="place-desc"
+                >Higher and wilder than Ohrid, shared with Greece and Albania — apple orchards,
+                pelicans, and the ruined churches of Golem Grad island.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Galičica National Park</span
+              ><span class="place-desc"
+                >The 24,000-hectare karst ridge between Ohrid and Prespa — a panoramic road, Magaro
+                peak at 2,254 m, wild horses, over 1,600 plant species.</span
+              >
+            </li>
+            <li>
+              <span class="place-name">Mother Teresa Memorial House</span
+              ><span class="place-desc"
+                >In central Skopje, on the spot where she was born in 1910 — a small museum and a
+                glass chapel.</span
+              >
+            </li>
+          </ul>
+
+          <h3 class="subhead" id="map">On the map</h3>
+          <p class="map-note">
+            Everything above, plotted. Click a marker for a one-line note; green markers are the
+            national parks and reserves.
+          </p>
+          <div
+            id="macedonia-map"
+            class="mk-map"
+            role="img"
+            aria-label="Map of North Macedonia with the destinations covered on this page"
+          ></div>
         </div>
-        <p class="section-note">Balkan, Ottoman and Mediterranean cooking, mostly in the same meal — slow, cheap, and more than you can finish.</p>
-      </header>
+      </section>
 
-      <div class="food-grid">
-        <article class="food-card">
-          <h3>Tavče gravče</h3>
-          <p>The national dish: white beans baked with paprika and onion in an unglazed clay pot. It started as a Friday and fasting dish, so the classic version has no meat.</p>
-          <p class="food-where">Cheapest in Skopje's Old Bazaar</p>
-        </article>
-        <article class="food-card">
-          <h3>Ajvar</h3>
-          <p>Roasted red peppers cooked down into a relish, smooth or chunky, eaten with everything. It carries a protected-origin label; the best peppers come from Strumica.</p>
-          <p class="food-where">Made at home every autumn</p>
-        </article>
-        <article class="food-card">
-          <h3>Ohrid trout</h3>
-          <p>Pastrmka, grilled or smoked, eaten on the water. Some native species are protected, so you'll often be served a farmed or introduced one.</p>
-          <p class="food-where">Lakeside in Ohrid &amp; Struga</p>
-        </article>
-        <article class="food-card">
-          <h3>Šopska salad</h3>
-          <p>Tomato, cucumber and onion under a thick layer of grated sirenje. On every table from June to October.</p>
-          <p class="food-where">Everywhere, all summer</p>
-        </article>
-        <article class="food-card">
-          <h3>Kebapi</h3>
-          <p>Little grilled fingers of minced meat with soft lepinja bread, raw onion and a spoon of ajvar. A portion is ten.</p>
-          <p class="food-where">Any grill house (skara)</p>
-        </article>
-        <article class="food-card">
-          <h3>Selsko meso</h3>
-          <p>"Village meat" — a clay-pot stew of pork, mushrooms and peppers that's still bubbling when it reaches you.</p>
-          <p class="food-where">Mountain taverns</p>
-        </article>
-        <article class="food-card">
-          <h3>Burek</h3>
-          <p>Coiled filo with cheese, meat or spinach, sold by the slice. The standard breakfast, best before 10am with a drinking yoghurt.</p>
-          <p class="food-where">Every bakery</p>
-        </article>
-        <article class="food-card">
-          <h3>Baklava &amp; tulumba</h3>
-          <p>Ottoman-era sweets — layered nut pastry, syrup-soaked fried dough — with a small, strong coffee to cut it.</p>
-          <p class="food-where">Bazaar sweet shops</p>
-        </article>
-      </div>
+      <!-- FOOD & DRINK -->
+      <section class="section section-muted" id="food">
+        <div class="wrap">
+          <header class="section-head">
+            <div>
+              <p class="eyebrow">What to eat</p>
+              <h2 class="section-title">A taste of Macedonia</h2>
+            </div>
+            <p class="section-note">
+              Balkan, Ottoman and Mediterranean cooking, mostly in the same meal — slow, cheap, and
+              more than you can finish.
+            </p>
+          </header>
 
-      <div class="drinks-strip">
-        <h3>To drink</h3>
-        <ul>
-          <li><strong>Rakija</strong> — grape or plum brandy, poured before you've sat down properly.</li>
-          <li><strong>Tikveš wine</strong> — one of Europe's oldest wine regions; ask for the native Vranec (red) and Temjanika (white).</li>
-          <li><strong>Mastika</strong> — a cold anise spirit, drunk with meze.</li>
-          <li><strong>Boza &amp; salep</strong> — a fermented grain drink, and a warm orchid-root one for winter, both from bazaar stalls.</li>
-        </ul>
-      </div>
+          <div class="food-grid">
+            <article class="food-card">
+              <h3>Tavče gravče</h3>
+              <p>
+                The national dish: white beans baked with paprika and onion in an unglazed clay pot.
+                It started as a Friday and fasting dish, so the classic version has no meat.
+              </p>
+              <p class="food-where">Cheapest in Skopje's Old Bazaar</p>
+            </article>
+            <article class="food-card">
+              <h3>Ajvar</h3>
+              <p>
+                Roasted red peppers cooked down into a relish, smooth or chunky, eaten with
+                everything. It carries a protected-origin label; the best peppers come from
+                Strumica.
+              </p>
+              <p class="food-where">Made at home every autumn</p>
+            </article>
+            <article class="food-card">
+              <h3>Ohrid trout</h3>
+              <p>
+                Pastrmka, grilled or smoked, eaten on the water. Some native species are protected,
+                so you'll often be served a farmed or introduced one.
+              </p>
+              <p class="food-where">Lakeside in Ohrid &amp; Struga</p>
+            </article>
+            <article class="food-card">
+              <h3>Šopska salad</h3>
+              <p>
+                Tomato, cucumber and onion under a thick layer of grated sirenje. On every table
+                from June to October.
+              </p>
+              <p class="food-where">Everywhere, all summer</p>
+            </article>
+            <article class="food-card">
+              <h3>Kebapi</h3>
+              <p>
+                Little grilled fingers of minced meat with soft lepinja bread, raw onion and a spoon
+                of ajvar. A portion is ten.
+              </p>
+              <p class="food-where">Any grill house (skara)</p>
+            </article>
+            <article class="food-card">
+              <h3>Selsko meso</h3>
+              <p>
+                "Village meat" — a clay-pot stew of pork, mushrooms and peppers that's still
+                bubbling when it reaches you.
+              </p>
+              <p class="food-where">Mountain taverns</p>
+            </article>
+            <article class="food-card">
+              <h3>Burek</h3>
+              <p>
+                Coiled filo with cheese, meat or spinach, sold by the slice. The standard breakfast,
+                best before 10am with a drinking yoghurt.
+              </p>
+              <p class="food-where">Every bakery</p>
+            </article>
+            <article class="food-card">
+              <h3>Baklava &amp; tulumba</h3>
+              <p>
+                Ottoman-era sweets — layered nut pastry, syrup-soaked fried dough — with a small,
+                strong coffee to cut it.
+              </p>
+              <p class="food-where">Bazaar sweet shops</p>
+            </article>
+          </div>
 
-      <div class="food-gallery">
-        <figure>
-          <img src="Media/food-village-lunch.jpg" alt="Table spread with pindžur, tavče gravče, roasted peppers, šopska salad and bread in clay dishes" loading="lazy" />
-          <figcaption>A spread at a village house — pindžur, tavče gravče, šopska, roasted peppers</figcaption>
-        </figure>
-        <figure>
-          <img src="Media/food-garden-table.jpg" alt="Outdoor wooden table with a large šopska salad, grilled sausages and stuffed vine leaves" loading="lazy" />
-          <figcaption>Lunch in the garden — šopska, skara and sarma</figcaption>
-        </figure>
-        <figure>
-          <img src="Media/food-picnic-mavrovo.jpg" alt="Picnic basket and a cheese board on a checked blanket above Lake Mavrovo" loading="lazy" />
-          <figcaption>A packed lunch above Lake Mavrovo</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+          <div class="drinks-strip">
+            <h3>To drink</h3>
+            <ul>
+              <li>
+                <strong>Rakija</strong> — grape or plum brandy, poured before you've sat down
+                properly.
+              </li>
+              <li>
+                <strong>Tikveš wine</strong> — one of Europe's oldest wine regions; ask for the
+                native Vranec (red) and Temjanika (white).
+              </li>
+              <li><strong>Mastika</strong> — a cold anise spirit, drunk with meze.</li>
+              <li>
+                <strong>Boza &amp; salep</strong> — a fermented grain drink, and a warm orchid-root
+                one for winter, both from bazaar stalls.
+              </li>
+            </ul>
+          </div>
 
-  <!-- WILDLIFE -->
-  <section class="section" id="wildlife">
-    <div class="wrap">
-      <header class="section-head">
-        <div>
-          <p class="eyebrow">Wild Macedonia</p>
-          <h2 class="section-title">Who else lives here</h2>
+          <div class="food-gallery">
+            <figure>
+              <img
+                src="Media/food-village-lunch.jpg"
+                alt="Table spread with pindžur, tavče gravče, roasted peppers, šopska salad and bread in clay dishes"
+                loading="lazy"
+              />
+              <figcaption>
+                A spread at a village house — pindžur, tavče gravče, šopska, roasted peppers
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src="Media/food-garden-table.jpg"
+                alt="Outdoor wooden table with a large šopska salad, grilled sausages and stuffed vine leaves"
+                loading="lazy"
+              />
+              <figcaption>Lunch in the garden — šopska, skara and sarma</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="Media/food-picnic-mavrovo.jpg"
+                alt="Picnic basket and a cheese board on a checked blanket above Lake Mavrovo"
+                loading="lazy"
+              />
+              <figcaption>A packed lunch above Lake Mavrovo</figcaption>
+            </figure>
+          </div>
         </div>
-        <p class="section-note">About a third of the country is forest and mountain, and some of Europe's last big carnivores are still in it.</p>
-      </header>
+      </section>
 
-      <div class="wild-grid">
-        <article class="wild-card">
-          <img src="Media/wild-lynx.jpg" alt="Balkan lynx sitting among autumn leaves in a forest" loading="lazy" />
-          <div class="wild-body">
-            <h3>Balkan lynx</h3>
-            <p>Critically endangered, and a national symbol — it's on the coin. Perhaps a few dozen are left, mostly in Mavrovo and along the Albanian border. Nobody expects to see one.</p>
-          </div>
-        </article>
-        <article class="wild-card">
-          <img src="Media/wild-bear.jpg" alt="Brown bear walking through a dark forest" loading="lazy" />
-          <div class="wild-body">
-            <h3>Brown bear</h3>
-            <p>A few hundred, in the western and northern ranges. This is why the guides talk loudly on certain trails.</p>
-          </div>
-        </article>
-        <article class="wild-card">
-          <img src="Media/wild-wolf.jpg" alt="Grey wolf standing in snow" loading="lazy" />
-          <div class="wild-body">
-            <h3>Grey wolf</h3>
-            <p>Widespread, almost never seen. You're far more likely to hear one at night, or cross tracks in fresh snow.</p>
-          </div>
-        </article>
-        <article class="wild-card">
-          <img src="Media/galicica-wild-horses.jpg" alt="Wild horses grazing on the Galičica plateau while a hiker photographs them" loading="lazy" />
-          <div class="wild-body">
-            <h3>Wild horses</h3>
-            <p>Free-roaming herds graze the high pastures of Galičica between Ohrid and Prespa all summer. These you can usually find.</p>
-          </div>
-        </article>
-        <article class="wild-card">
-          <img src="Media/wild-goat.jpg" alt="Wild goat with large curved horns resting on a rocky slope" loading="lazy" />
-          <div class="wild-body">
-            <h3>Chamois &amp; wild goat</h3>
-            <p>Sure-footed on the cliffs of Matka, Demir Kapija and the Šar. Look up.</p>
-          </div>
-        </article>
-        <article class="wild-card">
-          <img src="Media/wild-fox.jpg" alt="Red fox standing in open scrubland at golden hour" loading="lazy" />
-          <div class="wild-body">
-            <h3>And the rest</h3>
-            <p>Red fox, wild boar, golden jackal, tortoises around Prespa, and pelicans and herons out on the lakes.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+      <!-- WILDLIFE -->
+      <section class="section" id="wildlife">
+        <div class="wrap">
+          <header class="section-head">
+            <div>
+              <p class="eyebrow">Wild Macedonia</p>
+              <h2 class="section-title">Who else lives here</h2>
+            </div>
+            <p class="section-note">
+              About a third of the country is forest and mountain, and some of Europe's last big
+              carnivores are still in it.
+            </p>
+          </header>
 
-  <!-- TRADITIONS -->
-  <section class="section section-muted" id="traditions">
-    <div class="wrap">
-      <header class="section-head">
-        <div>
-          <p class="eyebrow">Living traditions</p>
-          <h2 class="section-title">Old country, still going</h2>
+          <div class="wild-grid">
+            <article class="wild-card">
+              <img
+                src="Media/wild-lynx.jpg"
+                alt="Balkan lynx sitting among autumn leaves in a forest"
+                loading="lazy"
+              />
+              <div class="wild-body">
+                <h3>Balkan lynx</h3>
+                <p>
+                  Critically endangered, and a national symbol — it's on the coin. Perhaps a few
+                  dozen are left, mostly in Mavrovo and along the Albanian border. Nobody expects to
+                  see one.
+                </p>
+              </div>
+            </article>
+            <article class="wild-card">
+              <img
+                src="Media/wild-bear.jpg"
+                alt="Brown bear walking through a dark forest"
+                loading="lazy"
+              />
+              <div class="wild-body">
+                <h3>Brown bear</h3>
+                <p>
+                  A few hundred, in the western and northern ranges. This is why the guides talk
+                  loudly on certain trails.
+                </p>
+              </div>
+            </article>
+            <article class="wild-card">
+              <img src="Media/wild-wolf.jpg" alt="Grey wolf standing in snow" loading="lazy" />
+              <div class="wild-body">
+                <h3>Grey wolf</h3>
+                <p>
+                  Widespread, almost never seen. You're far more likely to hear one at night, or
+                  cross tracks in fresh snow.
+                </p>
+              </div>
+            </article>
+            <article class="wild-card">
+              <img
+                src="Media/galicica-wild-horses.jpg"
+                alt="Wild horses grazing on the Galičica plateau while a hiker photographs them"
+                loading="lazy"
+              />
+              <div class="wild-body">
+                <h3>Wild horses</h3>
+                <p>
+                  Free-roaming herds graze the high pastures of Galičica between Ohrid and Prespa
+                  all summer. These you can usually find.
+                </p>
+              </div>
+            </article>
+            <article class="wild-card">
+              <img
+                src="Media/wild-goat.jpg"
+                alt="Wild goat with large curved horns resting on a rocky slope"
+                loading="lazy"
+              />
+              <div class="wild-body">
+                <h3>Chamois &amp; wild goat</h3>
+                <p>Sure-footed on the cliffs of Matka, Demir Kapija and the Šar. Look up.</p>
+              </div>
+            </article>
+            <article class="wild-card">
+              <img
+                src="Media/wild-fox.jpg"
+                alt="Red fox standing in open scrubland at golden hour"
+                loading="lazy"
+              />
+              <div class="wild-body">
+                <h3>And the rest</h3>
+                <p>
+                  Red fox, wild boar, golden jackal, tortoises around Prespa, and pelicans and
+                  herons out on the lakes.
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
-        <p class="section-note">Orthodox, Ottoman and village culture, layered for centuries — and none of it behind glass.</p>
-      </header>
+      </section>
 
-      <div class="trad-grid">
-        <article class="trad-card">
-          <img src="Media/galicnik-wedding.jpg" alt="Couple in ornate traditional Macedonian dress leading a white horse through Galičnik village" loading="lazy" />
-          <div class="trad-body">
-            <h3>The Galičnik Wedding</h3>
-            <p>Every July, one couple is married in full traditional dress in this mountain village near Mavrovo — drums, oro dancing, and a horseback procession the whole valley turns out for.</p>
-          </div>
-        </article>
-        <article class="trad-card">
-          <img src="Media/bigorski-monastery.jpg" alt="Whitewashed galleried courtyard of Bigorski Monastery in the mountains" loading="lazy" />
-          <div class="trad-body">
-            <h3>Bigorski Monastery</h3>
-            <p>Above the Radika river near Mavrovo. Its wooden iconostasis — years of work by 19th-century master carvers — is one of the most intricate anywhere.</p>
-          </div>
-        </article>
-        <article class="trad-card">
-          <img src="Media/tetovo-painted-mosque.jpg" alt="Painted floral and architectural frescoes covering the porch of the Šarena Džamija in Tetovo" loading="lazy" />
-          <div class="trad-body">
-            <h3>The Painted Mosque</h3>
-            <p>Tetovo's Šarena Džamija, from 1438 and repainted in 1833 — every surface covered in flowers, landscapes and geometry, which is unusual for a mosque.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+      <!-- TRADITIONS -->
+      <section class="section section-muted" id="traditions">
+        <div class="wrap">
+          <header class="section-head">
+            <div>
+              <p class="eyebrow">Living traditions</p>
+              <h2 class="section-title">Old country, still going</h2>
+            </div>
+            <p class="section-note">
+              Orthodox, Ottoman and village culture, layered for centuries — and none of it behind
+              glass.
+            </p>
+          </header>
 
-  <!-- JOURNAL -->
-  <section class="section" id="journal">
-    <div class="wrap">
-      <header class="section-head">
-        <div>
-          <p class="eyebrow">Journal</p>
-          <h2 class="section-title">Notes from the road</h2>
+          <div class="trad-grid">
+            <article class="trad-card">
+              <img
+                src="Media/galicnik-wedding.jpg"
+                alt="Couple in ornate traditional Macedonian dress leading a white horse through Galičnik village"
+                loading="lazy"
+              />
+              <div class="trad-body">
+                <h3>The Galičnik Wedding</h3>
+                <p>
+                  Every July, one couple is married in full traditional dress in this mountain
+                  village near Mavrovo — drums, oro dancing, and a horseback procession the whole
+                  valley turns out for.
+                </p>
+              </div>
+            </article>
+            <article class="trad-card">
+              <img
+                src="Media/bigorski-monastery.jpg"
+                alt="Whitewashed galleried courtyard of Bigorski Monastery in the mountains"
+                loading="lazy"
+              />
+              <div class="trad-body">
+                <h3>Bigorski Monastery</h3>
+                <p>
+                  Above the Radika river near Mavrovo. Its wooden iconostasis — years of work by
+                  19th-century master carvers — is one of the most intricate anywhere.
+                </p>
+              </div>
+            </article>
+            <article class="trad-card">
+              <img
+                src="Media/tetovo-painted-mosque.jpg"
+                alt="Painted floral and architectural frescoes covering the porch of the Šarena Džamija in Tetovo"
+                loading="lazy"
+              />
+              <div class="trad-body">
+                <h3>The Painted Mosque</h3>
+                <p>
+                  Tetovo's Šarena Džamija, from 1438 and repainted in 1833 — every surface covered
+                  in flowers, landscapes and geometry, which is unusual for a mosque.
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
-        <p class="section-note">Route ideas, seasonal advice, and the occasional long-lunch write-up.</p>
-      </header>
+      </section>
 
-      <div class="journal-grid">
-        <article class="journal-card">
-          <img src="Media/istockphoto-2206279375-612x612.jpg" alt="Small glacial lake high in the mountains" />
-          <div class="journal-body">
-            <p class="journal-meta">Trails · 6 min read</p>
-            <h3>A three-day traverse of Pelister</h3>
-            <p>Hut to hut across Baba Mountain, finishing at the two glacial lakes people call Pelister's Eyes.</p>
-          </div>
-        </article>
+      <!-- JOURNAL -->
+      <section class="section" id="journal">
+        <div class="wrap">
+          <header class="section-head">
+            <div>
+              <p class="eyebrow">Journal</p>
+              <h2 class="section-title">Notes from the road</h2>
+            </div>
+            <p class="section-note">
+              Route ideas, seasonal advice, and the occasional long-lunch write-up.
+            </p>
+          </header>
 
-        <article class="journal-card">
-          <img src="Media/istockphoto-178386611-612x612.jpg" alt="Wooden boats moored below Ohrid old town" />
-          <div class="journal-body">
-            <p class="journal-meta">Towns · 4 min read</p>
-            <h3>One good day in Ohrid</h3>
-            <p>Where to start before the crowds, which church to keep for the evening light, and the honest answer on the trout.</p>
-          </div>
-        </article>
+          <div class="journal-grid">
+            <article class="journal-card">
+              <img
+                src="Media/istockphoto-2206279375-612x612.jpg"
+                alt="Small glacial lake high in the mountains"
+              />
+              <div class="journal-body">
+                <p class="journal-meta">Trails · 6 min read</p>
+                <h3>A three-day traverse of Pelister</h3>
+                <p>
+                  Hut to hut across Baba Mountain, finishing at the two glacial lakes people call
+                  Pelister's Eyes.
+                </p>
+              </div>
+            </article>
 
-        <article class="journal-card">
-          <img src="Media/istockphoto-1320436970-612x612.jpg" alt="Green river valley below snow-streaked mountains" />
-          <div class="journal-body">
-            <p class="journal-meta">Seasons · 5 min read</p>
-            <h3>When to come</h3>
-            <p>Wildflowers in May, swimming in September, snow at Mavrovo from December — a month-by-month steer.</p>
+            <article class="journal-card">
+              <img
+                src="Media/istockphoto-178386611-612x612.jpg"
+                alt="Wooden boats moored below Ohrid old town"
+              />
+              <div class="journal-body">
+                <p class="journal-meta">Towns · 4 min read</p>
+                <h3>One good day in Ohrid</h3>
+                <p>
+                  Where to start before the crowds, which church to keep for the evening light, and
+                  the honest answer on the trout.
+                </p>
+              </div>
+            </article>
+
+            <article class="journal-card">
+              <img
+                src="Media/istockphoto-1320436970-612x612.jpg"
+                alt="Green river valley below snow-streaked mountains"
+              />
+              <div class="journal-body">
+                <p class="journal-meta">Seasons · 5 min read</p>
+                <h3>When to come</h3>
+                <p>
+                  Wildflowers in May, swimming in September, snow at Mavrovo from December — a
+                  month-by-month steer.
+                </p>
+              </div>
+            </article>
           </div>
-        </article>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="wrap cta-inner">
+          <h2>Seen enough?</h2>
+          <p>Tell us roughly what you're after and we'll sketch out an itinerary.</p>
+          <a href="index.html#plan" class="btn btn-solid">Plan a trip</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-bottom" style="border: 0; padding-top: 0">
+        <p>
+          © <span id="year">2026</span> Undiscovered Macedonia — a student project.
+          <a href="credits.html" class="text-link">Credits</a>
+        </p>
+        <a href="index.html" class="text-link">← Home</a>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <section class="cta">
-    <div class="wrap cta-inner">
-      <h2>Seen enough?</h2>
-      <p>Tell us roughly what you're after and we'll sketch out an itinerary.</p>
-      <a href="index.html#plan" class="btn btn-solid">Plan a trip</a>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-bottom" style="border:0;padding-top:0">
-    <p>© <span id="year">2026</span> Undiscovered Macedonia — a student project. <a href="credits.html" class="text-link">Credits</a></p>
-    <a href="index.html" class="text-link">← Home</a>
-  </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
-<script src="script.js"></script>
-</body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+      crossorigin=""
+    ></script>
+    <script src="script.js"></script>
+  </body>
 </html>

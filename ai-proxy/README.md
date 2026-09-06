@@ -2,10 +2,10 @@
 
 The "Ask a question" widget on the site can run in two modes:
 
-| Mode | What answers | Setup |
-|---|---|---|
-| **Offline** (default) | a built-in keyword knowledge base — limited to topics it was written for | none |
-| **Live AI** | a real language model that can answer almost anything, and **searches the web** for weather, event dates, prices, schedules and news | one of the options below |
+| Mode                  | What answers                                                                                                                         | Setup                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
+| **Offline** (default) | a built-in keyword knowledge base — limited to topics it was written for                                                             | none                     |
+| **Live AI**           | a real language model that can answer almost anything, and **searches the web** for weather, event dates, prices, schedules and news | one of the options below |
 
 The website code already supports both. `script.js` is **already wired** to a local
 proxy at `http://localhost:8787` — if no proxy is running it silently falls back to
@@ -13,7 +13,7 @@ the offline guide, so nothing breaks. Start a proxy (below) and the live AI turn
 automatically.
 
 ```js
-var ASSISTANT_CONFIG = { apiUrl: "http://localhost:8787" };  // in script.js
+var ASSISTANT_CONFIG = { apiUrl: "http://localhost:8787" }; // in script.js
 ```
 
 The browser sends `POST { messages: [ { role, content }, … ] }` and expects `{ reply: "…" }` back.
@@ -34,7 +34,7 @@ built in.
    ```
    You should see `Gemini AI proxy on http://localhost:8787`.
 3. Reload the site. Open "Ask a question" and try:
-   *"what's the weather in Ohrid this week?"* or *"plan me 4 days around Mavrovo"*.
+   _"what's the weather in Ohrid this week?"_ or _"plan me 4 days around Mavrovo"_.
 
 That's it — the assistant is now a real model that can search the web. Leave the
 terminal window open while you demo; close it and the site falls back to offline.
@@ -104,12 +104,12 @@ In either file, replace the API call. For OpenAI the request becomes:
 ```js
 fetch("https://api.openai.com/v1/chat/completions", {
   method: "POST",
-  headers: { "content-type": "application/json", "authorization": "Bearer " + KEY },
+  headers: { "content-type": "application/json", authorization: "Bearer " + KEY },
   body: JSON.stringify({
     model: "gpt-4o-mini",
-    messages: [{ role: "system", content: SYSTEM_PROMPT }, ...turns]
-  })
-})
+    messages: [{ role: "system", content: SYSTEM_PROMPT }, ...turns],
+  }),
+});
 // reply is at:  data.choices[0].message.content
 ```
 

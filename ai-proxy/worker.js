@@ -52,7 +52,11 @@ export default {
     if (request.method !== "POST") return cors(json({ error: "POST only" }, 405));
 
     let body;
-    try { body = await request.json(); } catch { return cors(json({ error: "bad JSON" }, 400)); }
+    try {
+      body = await request.json();
+    } catch {
+      return cors(json({ error: "bad JSON" }, 400));
+    }
 
     const messages = Array.isArray(body.messages) ? body.messages : [];
     // keep only user/assistant turns with text, cap the history length
@@ -71,7 +75,7 @@ export default {
         headers: {
           "content-type": "application/json",
           "x-api-key": env.ANTHROPIC_API_KEY,
-          "anthropic-version": "2023-06-01"
+          "anthropic-version": "2023-06-01",
         },
         body: JSON.stringify({
           model: MODEL,
@@ -80,8 +84,8 @@ export default {
           messages: turns,
           // built-in web search — the API runs the search loop server-side
           // and returns the finished answer. Remove this line to disable it.
-          tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 4 }]
-        })
+          tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 4 }],
+        }),
       });
 
       if (!r.ok) {
@@ -100,14 +104,14 @@ export default {
     } catch (err) {
       return cors(json({ error: "proxy failure", detail: String(err) }, 500));
     }
-  }
+  },
 };
 
 /* ---------- helpers ---------- */
 function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), {
     status,
-    headers: { "content-type": "application/json" }
+    headers: { "content-type": "application/json" },
   });
 }
 function cors(res) {

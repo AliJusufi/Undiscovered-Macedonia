@@ -40,47 +40,65 @@ if (!KEY) {
   process.exit(1);
 }
 
-http.createServer(async (req, res) => {
-  const cors = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "content-type"
-  };
-  if (req.method === "OPTIONS") { res.writeHead(204, cors); return res.end(); }
-  if (req.method !== "POST") { res.writeHead(405, cors); return res.end("POST only"); }
-
-  let raw = "";
-  req.on("data", (c) => (raw += c));
-  req.on("end", async () => {
-    let messages = [];
-    try { messages = JSON.parse(raw).messages || []; } catch {}
-    const turns = messages
-      .filter((m) => (m.role === "user" || m.role === "assistant") && typeof m.content === "string")
-      .slice(-12);
-
-    try {
-      const r = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "x-api-key": KEY,
-          "anthropic-version": "2023-06-01"
-        },
-        body: JSON.stringify({
-          model: MODEL,
-          max_tokens: 900,
-          system: SYSTEM_PROMPT,
-          messages: turns,
-          tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 4 }]
-        })
-      });
-      const data = await r.json();
-      const reply = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
-      res.writeHead(200, { ...cors, "content-type": "application/json" });
-      res.end(JSON.stringify({ reply: reply || "Sorry, could you rephrase that?" }));
-    } catch (err) {
-      res.writeHead(500, { ...cors, "content-type": "application/json" });
-      res.end(JSON.stringify({ error: String(err) }));
+http
+  .createServer(async (req, res) => {
+    const cors = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "content-type",
+    };
+    if (req.method === "OPTIONS") {
+      res.writeHead(204, cors);
+      return res.end();
     }
-  });
-}).listen(PORT, () => console.log("AI proxy on http://localhost:" + PORT + "  (model: " + MODEL + ")"));
+    if (req.method !== "POST") {
+      res.writeHead(405, cors);
+      return res.end("POST only");
+    }
+
+    let raw = "";
+    req.on("data", (c) => (raw += c));
+    req.on("end", async () => {
+      let messages = [];
+      try {
+        messages = JSON.parse(raw).messages || [];
+      } catch {}
+      const turns = messages
+        .filter(
+          (m) => (m.role === "user" || m.role === "assistant") && typeof m.content === "string"
+        )
+        .slice(-12);
+
+      try {
+        const r = await fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "x-api-key": KEY,
+            "anthropic-version": "2023-06-01",
+          },
+          body: JSON.stringify({
+            model: MODEL,
+            max_tokens: 900,
+            system: SYSTEM_PROMPT,
+            messages: turns,
+            tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 4 }],
+          }),
+        });
+        const data = await r.json();
+        const reply = (data.content || [])
+          .filter((b) => b.type === "text")
+          .map((b) => b.text)
+          .join("\n")
+          .trim();
+        res.writeHead(200, { ...cors, "content-type": "application/json" });
+        res.end(JSON.stringify({ reply: reply || "Sorry, could you rephrase that?" }));
+      } catch (err) {
+        res.writeHead(500, { ...cors, "content-type": "application/json" });
+        res.end(JSON.stringify({ error: String(err) }));
+      }
+    });
+  })
+  .listen(PORT, () =>
+    console.log("AI proxy on http://localhost:" + PORT + "  (model: " + MODEL + ")")
+  );

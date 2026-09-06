@@ -5,15 +5,15 @@ Built as a bachelor thesis project: plain HTML, CSS and JavaScript with **no bui
 
 ## What's in it
 
-| Page | Purpose |
-|---|---|
-| `index.html` | Home — hero, destination and trip previews, guides, plan-a-trip form |
-| `explore.html` | All destinations, an interactive Leaflet map, food, wildlife, traditions |
-| `trips.html` | Full day-by-day trip write-ups, experiences, departures table |
-| `travelers.html` | "Meet Travellers" — offline matching prototype (sample data, localStorage) |
+| Page                  | Purpose                                                                                                                            |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `index.html`          | Home — hero, destination and trip previews, guides, plan-a-trip form                                                               |
+| `explore.html`        | All destinations, an interactive Leaflet map, food, wildlife, traditions                                                           |
+| `trips.html`          | Full day-by-day trip write-ups, experiences, departures table                                                                      |
+| `travelers.html`      | "Meet Travellers" — offline matching prototype (sample data, localStorage)                                                         |
 | `travelers-live.html` | The same feature on a real Supabase backend — accounts, DB, live matches & chat. Setup: [`supabase/README.md`](supabase/README.md) |
-| `credits.html` | Honest project / photo-licensing notes |
-| `thesis-figures.html` | Figures generated for the written thesis |
+| `credits.html`        | Honest project / photo-licensing notes                                                                                             |
+| `thesis-figures.html` | Figures generated for the written thesis                                                                                           |
 
 Interactive features (all client-side, `localStorage`-backed) live in `script.js`:
 the plan-a-trip enquiry form, the **UMac** assistant with "save to my trip", and the

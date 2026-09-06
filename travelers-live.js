@@ -23,7 +23,7 @@
 
   if (!cfg.url || !cfg.anonKey) {
     gate.innerHTML =
-      '<h2>Backend not configured</h2>' +
+      "<h2>Backend not configured</h2>" +
       "<p>Add your Supabase URL and anon key to <code>travelers-config.js</code>, " +
       "then reload. Setup steps are in <code>supabase/README.md</code>. " +
       'Meanwhile the <a class="text-link" href="travelers.html">offline prototype</a> works with no setup.</p>';
@@ -39,14 +39,40 @@
   var sb = window.supabase.createClient(cfg.url, cfg.anonKey);
 
   var INTERESTS = [
-    "Hiking", "Museums", "Food tours", "Wine", "Kayaking", "Photography",
-    "History", "Nightlife", "Road trips", "Budget travel", "Camping",
-    "Architecture", "Swimming", "Cycling", "Local markets", "Slow travel",
+    "Hiking",
+    "Museums",
+    "Food tours",
+    "Wine",
+    "Kayaking",
+    "Photography",
+    "History",
+    "Nightlife",
+    "Road trips",
+    "Budget travel",
+    "Camping",
+    "Architecture",
+    "Swimming",
+    "Cycling",
+    "Local markets",
+    "Slow travel",
   ];
-  var AV_COLORS = ["#2C3D31", "#47624E", "#7A5C3E", "#3E5C6B", "#6B3E5C", "#4A4A2E", "#374C7A", "#7A4A3E"];
+  var AV_COLORS = [
+    "#2C3D31",
+    "#47624E",
+    "#7A5C3E",
+    "#3E5C6B",
+    "#6B3E5C",
+    "#4A4A2E",
+    "#374C7A",
+    "#7A4A3E",
+  ];
 
-  var $ = function (s, r) { return (r || document).querySelector(s); };
-  function initials(name) { return (name || "?").trim().slice(0, 1).toUpperCase(); }
+  var $ = function (s, r) {
+    return (r || document).querySelector(s);
+  };
+  function initials(name) {
+    return (name || "?").trim().slice(0, 1).toUpperCase();
+  }
   function colorFor(id) {
     var n = 0;
     for (var i = 0; i < id.length; i++) n += id.charCodeAt(i);
@@ -70,7 +96,9 @@
   function sharedInterests(p) {
     if (!profile) return [];
     var mine = profile.interests || [];
-    return (p.interests || []).filter(function (x) { return mine.indexOf(x) !== -1; });
+    return (p.interests || []).filter(function (x) {
+      return mine.indexOf(x) !== -1;
+    });
   }
   function pairKey(otherId) {
     return me.id < otherId ? [me.id, otherId] : [otherId, me.id];
@@ -121,7 +149,9 @@
   });
 
   signOutBtn.addEventListener("click", function () {
-    sb.auth.signOut().then(function () { location.reload(); });
+    sb.auth.signOut().then(function () {
+      location.reload();
+    });
   });
 
   sb.auth.getSession().then(function (res) {
@@ -165,25 +195,32 @@
   });
 
   function loadProfile() {
-    sb.from("profiles").select("*").eq("id", me.id).maybeSingle().then(function (res) {
-      profile = res.data || null;
-      if (profile) {
-        form.name.value = profile.name || "";
-        form.country.value = profile.country || "";
-        form.age.value = profile.age || "";
-        form.pace.value = profile.pace || "Balanced";
-        form.from.value = profile.from_date || "";
-        form.to.value = profile.to_date || "";
-        form.bio.value = profile.bio || "";
-        selected = (profile.interests || []).slice();
-        Array.prototype.forEach.call(chipWrap.children, function (b) {
-          b.setAttribute("aria-pressed", selected.indexOf(b.textContent) !== -1 ? "true" : "false");
-        });
-      }
-      buildDeck();
-      refreshMatches();
-      subscribeMatches();
-    });
+    sb.from("profiles")
+      .select("*")
+      .eq("id", me.id)
+      .maybeSingle()
+      .then(function (res) {
+        profile = res.data || null;
+        if (profile) {
+          form.name.value = profile.name || "";
+          form.country.value = profile.country || "";
+          form.age.value = profile.age || "";
+          form.pace.value = profile.pace || "Balanced";
+          form.from.value = profile.from_date || "";
+          form.to.value = profile.to_date || "";
+          form.bio.value = profile.bio || "";
+          selected = (profile.interests || []).slice();
+          Array.prototype.forEach.call(chipWrap.children, function (b) {
+            b.setAttribute(
+              "aria-pressed",
+              selected.indexOf(b.textContent) !== -1 ? "true" : "false"
+            );
+          });
+        }
+        buildDeck();
+        refreshMatches();
+        subscribeMatches();
+      });
   }
 
   form.addEventListener("submit", function (e) {
@@ -205,20 +242,26 @@
       updated_at: new Date().toISOString(),
     };
     $("#profileMsg").textContent = "Saving…";
-    sb.from("profiles").upsert(row).select().single().then(function (res) {
-      if (res.error) {
-        $("#profileMsg").textContent = "Error: " + res.error.message;
-        return;
-      }
-      profile = res.data;
-      $("#profileMsg").textContent = "Saved. Start swiping →";
-      buildDeck();
-    });
+    sb.from("profiles")
+      .upsert(row)
+      .select()
+      .single()
+      .then(function (res) {
+        if (res.error) {
+          $("#profileMsg").textContent = "Error: " + res.error.message;
+          return;
+        }
+        profile = res.data;
+        $("#profileMsg").textContent = "Saved. Start swiping →";
+        buildDeck();
+      });
   });
 
   /* ================= tabs ================= */
-  var tabDiscover = $("#tabDiscover"), tabMatches = $("#tabMatches");
-  var discoverView = $("#discoverView"), matchesView = $("#matchesView");
+  var tabDiscover = $("#tabDiscover"),
+    tabMatches = $("#tabMatches");
+  var discoverView = $("#discoverView"),
+    matchesView = $("#matchesView");
   function setTab(which) {
     var d = which === "discover";
     tabDiscover.classList.toggle("is-active", d);
@@ -229,8 +272,12 @@
     matchesView.hidden = d;
     if (!d) renderMatches();
   }
-  tabDiscover.addEventListener("click", function () { setTab("discover"); });
-  tabMatches.addEventListener("click", function () { setTab("matches"); });
+  tabDiscover.addEventListener("click", function () {
+    setTab("discover");
+  });
+  tabMatches.addEventListener("click", function () {
+    setTab("matches");
+  });
 
   /* ================= deck ================= */
   var deck = $("#deck");
@@ -279,12 +326,22 @@
 
     var tags = (p.interests || [])
       .map(function (i) {
-        return '<span class="tv-tag' + (shared.indexOf(i) !== -1 ? " shared" : "") + '">' + esc(i) + "</span>";
+        return (
+          '<span class="tv-tag' +
+          (shared.indexOf(i) !== -1 ? " shared" : "") +
+          '">' +
+          esc(i) +
+          "</span>"
+        );
       })
       .join("");
 
     var overlap = shared.length
-      ? shared.length + " shared interest" + (shared.length > 1 ? "s" : "") + " · " + esc(shared.join(", "))
+      ? shared.length +
+        " shared interest" +
+        (shared.length > 1 ? "s" : "") +
+        " · " +
+        esc(shared.join(", "))
       : "No shared interests yet — still might click";
 
     var sub = [p.country, p.pace ? p.pace + " pace" : null].filter(Boolean).map(esc).join(" · ");
@@ -293,27 +350,52 @@
       '<span class="tv-stamp like">Connect</span>' +
       '<span class="tv-stamp nope">Skip</span>' +
       '<div class="tv-card-top">' +
-      '<span class="tv-avatar" style="background:' + colorFor(p.id) + '">' + initials(p.name) + "</span>" +
-      "<div><h3>" + esc(p.name) + (p.age ? ", " + p.age : "") + "</h3>" +
-      '<div class="tv-card-sub">' + sub + "</div></div>" +
+      '<span class="tv-avatar" style="background:' +
+      colorFor(p.id) +
+      '">' +
+      initials(p.name) +
+      "</span>" +
+      "<div><h3>" +
+      esc(p.name) +
+      (p.age ? ", " + p.age : "") +
+      "</h3>" +
+      '<div class="tv-card-sub">' +
+      sub +
+      "</div></div>" +
       "</div>" +
-      '<p class="tv-card-bio">' + esc(p.bio) + "</p>" +
-      '<div class="tv-card-tags">' + tags + "</div>" +
-      '<p class="tv-overlap">' + overlap + "</p>";
+      '<p class="tv-card-bio">' +
+      esc(p.bio) +
+      "</p>" +
+      '<div class="tv-card-tags">' +
+      tags +
+      "</div>" +
+      '<p class="tv-overlap">' +
+      overlap +
+      "</p>";
 
     if (isTop) enableDrag(el, p);
     return el;
   }
 
   function enableDrag(el, p) {
-    var startX = 0, startY = 0, dx = 0, dy = 0, dragging = false;
+    var startX = 0,
+      startY = 0,
+      dx = 0,
+      dy = 0,
+      dragging = false;
     var like = el.querySelector(".tv-stamp.like");
     var nope = el.querySelector(".tv-stamp.nope");
 
-    function down(x, y) { dragging = true; startX = x; startY = y; el.style.transition = "none"; }
+    function down(x, y) {
+      dragging = true;
+      startX = x;
+      startY = y;
+      el.style.transition = "none";
+    }
     function move(x, y) {
       if (!dragging) return;
-      dx = x - startX; dy = y - startY;
+      dx = x - startX;
+      dy = y - startY;
       el.style.transform = "translate(" + dx + "px," + dy + "px) rotate(" + dx / 18 + "deg)";
       like.style.opacity = dx > 30 ? Math.min(1, (dx - 30) / 80) : 0;
       nope.style.opacity = dx < -30 ? Math.min(1, (-dx - 30) / 80) : 0;
@@ -322,23 +404,48 @@
       if (!dragging) return;
       dragging = false;
       el.style.transition = "transform 0.3s ease";
-      if (dx > 110) { fly(el, 1); decide(p, "like"); }
-      else if (dx < -110) { fly(el, -1); decide(p, "pass"); }
-      else { el.style.transform = ""; like.style.opacity = 0; nope.style.opacity = 0; }
+      if (dx > 110) {
+        fly(el, 1);
+        decide(p, "like");
+      } else if (dx < -110) {
+        fly(el, -1);
+        decide(p, "pass");
+      } else {
+        el.style.transform = "";
+        like.style.opacity = 0;
+        nope.style.opacity = 0;
+      }
       dx = dy = 0;
     }
 
-    el.addEventListener("mousedown", function (e) { down(e.clientX, e.clientY); });
-    window.addEventListener("mousemove", function (e) { move(e.clientX, e.clientY); });
+    el.addEventListener("mousedown", function (e) {
+      down(e.clientX, e.clientY);
+    });
+    window.addEventListener("mousemove", function (e) {
+      move(e.clientX, e.clientY);
+    });
     window.addEventListener("mouseup", up);
-    el.addEventListener("touchstart", function (e) { down(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
-    el.addEventListener("touchmove", function (e) { move(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+    el.addEventListener(
+      "touchstart",
+      function (e) {
+        down(e.touches[0].clientX, e.touches[0].clientY);
+      },
+      { passive: true }
+    );
+    el.addEventListener(
+      "touchmove",
+      function (e) {
+        move(e.touches[0].clientX, e.touches[0].clientY);
+      },
+      { passive: true }
+    );
     el.addEventListener("touchend", up);
   }
 
   function fly(el, dir) {
     el.classList.add("leaving");
-    el.style.transform = "translate(" + dir * 600 + "px," + dir * 40 + "px) rotate(" + dir * 30 + "deg)";
+    el.style.transform =
+      "translate(" + dir * 600 + "px," + dir * 40 + "px) rotate(" + dir * 30 + "deg)";
     el.style.opacity = "0";
   }
 
@@ -351,12 +458,17 @@
     if (!queue.length) return;
     var p = queue[0];
     var top = currentTopCard();
-    if (top) { top.classList.add("leaving"); fly(top, kind === "like" ? 1 : -1); }
+    if (top) {
+      top.classList.add("leaving");
+      fly(top, kind === "like" ? 1 : -1);
+    }
     decide(p, kind);
   }
 
   function decide(p, kind) {
-    queue = queue.filter(function (q) { return q.id !== p.id; });
+    queue = queue.filter(function (q) {
+      return q.id !== p.id;
+    });
     setTimeout(renderDeck, 260);
 
     sb.from("swipes")
@@ -365,14 +477,23 @@
         if (res.error || kind !== "like") return;
         // did the trigger create a match? check for the pair
         var pk = pairKey(p.id);
-        sb.from("matches").select("a,b").eq("a", pk[0]).eq("b", pk[1]).maybeSingle().then(function (m) {
-          if (m.data) onNewMatch(p.id, p);
-        });
+        sb.from("matches")
+          .select("a,b")
+          .eq("a", pk[0])
+          .eq("b", pk[1])
+          .maybeSingle()
+          .then(function (m) {
+            if (m.data) onNewMatch(p.id, p);
+          });
       });
   }
 
-  $("#btnSkip").addEventListener("click", function () { act("pass"); });
-  $("#btnConnect").addEventListener("click", function () { act("like"); });
+  $("#btnSkip").addEventListener("click", function () {
+    act("pass");
+  });
+  $("#btnConnect").addEventListener("click", function () {
+    act("like");
+  });
   document.addEventListener("keydown", function (e) {
     if ($("#chatDrawer").hidden === false) return;
     if (discoverView.hidden) return;
@@ -389,10 +510,17 @@
       ? "You both like " + sh.join(", ").toLowerCase() + "."
       : "Opposites attract, apparently.";
     modal.hidden = false;
-    $("#matchMessage").onclick = function () { modal.hidden = true; openChat(p.id); };
-    $("#matchKeep").onclick = function () { modal.hidden = true; };
+    $("#matchMessage").onclick = function () {
+      modal.hidden = true;
+      openChat(p.id);
+    };
+    $("#matchKeep").onclick = function () {
+      modal.hidden = true;
+    };
   }
-  modal.addEventListener("click", function (e) { if (e.target === modal) modal.hidden = true; });
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) modal.hidden = true;
+  });
 
   /* ================= matches list ================= */
   var matchCountEl = $("#matchCount");
@@ -403,17 +531,30 @@
   }
 
   function refreshMatches() {
-    sb.from("matches").select("a,b,at").order("at", { ascending: true }).then(function (res) {
-      var rows = res.data || [];
-      var others = rows.map(function (r) { return r.a === me.id ? r.b : r.a; });
-      matchIds = others;
-      renderMatchCount();
-      if (!others.length) { renderMatches(); return; }
-      sb.from("profiles").select("*").in("id", others).then(function (pr) {
-        (pr.data || []).forEach(function (row) { matchProfiles[row.id] = row; });
-        renderMatches();
+    sb.from("matches")
+      .select("a,b,at")
+      .order("at", { ascending: true })
+      .then(function (res) {
+        var rows = res.data || [];
+        var others = rows.map(function (r) {
+          return r.a === me.id ? r.b : r.a;
+        });
+        matchIds = others;
+        renderMatchCount();
+        if (!others.length) {
+          renderMatches();
+          return;
+        }
+        sb.from("profiles")
+          .select("*")
+          .in("id", others)
+          .then(function (pr) {
+            (pr.data || []).forEach(function (row) {
+              matchProfiles[row.id] = row;
+            });
+            renderMatches();
+          });
       });
-    });
   }
 
   function onNewMatch(otherId, maybeProfile) {
@@ -425,19 +566,28 @@
       showMatch(p);
     }
     if (maybeProfile) done(maybeProfile);
-    else sb.from("profiles").select("*").eq("id", otherId).single().then(function (r) {
-      if (r.data) done(r.data);
-    });
+    else
+      sb.from("profiles")
+        .select("*")
+        .eq("id", otherId)
+        .single()
+        .then(function (r) {
+          if (r.data) done(r.data);
+        });
   }
 
   function subscribeMatches() {
     sb.channel("matches-" + me.id)
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "matches" }, function (payload) {
-        var r = payload.new;
-        if (r.a !== me.id && r.b !== me.id) return;
-        var otherId = r.a === me.id ? r.b : r.a;
-        if (matchIds.indexOf(otherId) === -1) onNewMatch(otherId);
-      })
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "matches" },
+        function (payload) {
+          var r = payload.new;
+          if (r.a !== me.id && r.b !== me.id) return;
+          var otherId = r.a === me.id ? r.b : r.a;
+          if (matchIds.indexOf(otherId) === -1) onNewMatch(otherId);
+        }
+      )
       .subscribe();
   }
 
@@ -445,25 +595,35 @@
     var list = $("#matchList");
     list.innerHTML = "";
     $("#noMatches").hidden = matchIds.length > 0;
-    matchIds.slice().reverse().forEach(function (id) {
-      var p = matchProfiles[id];
-      if (!p) return;
-      var msgs = chatCache[id] || [];
-      var last = msgs.length ? msgs[msgs.length - 1] : null;
-      var li = document.createElement("li");
-      var btn = document.createElement("button");
-      btn.innerHTML =
-        '<span class="tv-avatar" style="background:' + colorFor(id) + ';width:44px;height:44px;font-size:1rem">' +
-        initials(p.name) + "</span>" +
-        '<span><span class="tv-match-name">' + esc(p.name) + "</span><br>" +
-        '<span class="tv-match-last">' +
-        (last ? (last.from === "me" ? "You: " : "") + esc(last.text) : "Say hi") +
-        "</span></span>" +
-        '<span class="tv-match-arrow">›</span>';
-      btn.addEventListener("click", function () { openChat(id); });
-      li.appendChild(btn);
-      list.appendChild(li);
-    });
+    matchIds
+      .slice()
+      .reverse()
+      .forEach(function (id) {
+        var p = matchProfiles[id];
+        if (!p) return;
+        var msgs = chatCache[id] || [];
+        var last = msgs.length ? msgs[msgs.length - 1] : null;
+        var li = document.createElement("li");
+        var btn = document.createElement("button");
+        btn.innerHTML =
+          '<span class="tv-avatar" style="background:' +
+          colorFor(id) +
+          ';width:44px;height:44px;font-size:1rem">' +
+          initials(p.name) +
+          "</span>" +
+          '<span><span class="tv-match-name">' +
+          esc(p.name) +
+          "</span><br>" +
+          '<span class="tv-match-last">' +
+          (last ? (last.from === "me" ? "You: " : "") + esc(last.text) : "Say hi") +
+          "</span></span>" +
+          '<span class="tv-match-arrow">›</span>';
+        btn.addEventListener("click", function () {
+          openChat(id);
+        });
+        li.appendChild(btn);
+        list.appendChild(li);
+      });
   }
 
   /* ================= chat ================= */
@@ -485,7 +645,9 @@
     drawer.hidden = false;
     loadMessages(id);
     listenMessages(id);
-    setTimeout(function () { chatInput.focus(); }, 50);
+    setTimeout(function () {
+      chatInput.focus();
+    }, 50);
   }
 
   $("#chatBack").addEventListener("click", closeChat);
@@ -495,7 +657,10 @@
   function closeChat() {
     drawer.hidden = true;
     activeChat = null;
-    if (msgChannel) { sb.removeChannel(msgChannel); msgChannel = null; }
+    if (msgChannel) {
+      sb.removeChannel(msgChannel);
+      msgChannel = null;
+    }
   }
 
   function loadMessages(id) {
@@ -565,7 +730,11 @@
       .insert({ match_a: pk[0], match_b: pk[1], sender: me.id, body: text })
       .then(function (res) {
         if (res.error) {
-          chatCache[id].push({ from: "them", text: "(message failed to send)", at: new Date().toISOString() });
+          chatCache[id].push({
+            from: "them",
+            text: "(message failed to send)",
+            at: new Date().toISOString(),
+          });
           if (activeChat === id) renderChat();
         }
         renderMatches();

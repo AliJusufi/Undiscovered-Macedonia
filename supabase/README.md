@@ -29,7 +29,7 @@ function, and enables realtime.
 1. Left sidebar → **Authentication** → **Sign In / Providers**.
 2. Make sure **Email** is enabled (it is by default — magic link).
 3. For easy testing, scroll to **Email** settings and turn **Confirm email**
-   *off*. (Turn it back on before any real deployment.)
+   _off_. (Turn it back on before any real deployment.)
 
 ## 4. Connect the site
 
@@ -61,14 +61,14 @@ Both are safe to commit — the anon key can only do what the RLS policies allow
 
 ## How it maps to the prototype
 
-| Prototype (`travelers.js`) | Live (`travelers-live.js`) |
-|---|---|
-| `SEED` array of 14 people | `supabase.rpc('discover_profiles')` |
-| `localStorage` seen map | `swipes` table |
+| Prototype (`travelers.js`)              | Live (`travelers-live.js`)                                 |
+| --------------------------------------- | ---------------------------------------------------------- |
+| `SEED` array of 14 people               | `supabase.rpc('discover_profiles')`                        |
+| `localStorage` seen map                 | `swipes` table                                             |
 | `decide()` "≥2 shared interests or 35%" | insert into `swipes`; the `swipe_to_match` trigger decides |
-| poll nothing | `postgres_changes` realtime subscription on `matches` |
-| `replyTo()` canned replies | `messages` table + realtime subscription |
-| no identity | `supabase.auth.signInWithOtp` (magic link) |
+| poll nothing                            | `postgres_changes` realtime subscription on `matches`      |
+| `replyTo()` canned replies              | `messages` table + realtime subscription                   |
+| no identity                             | `supabase.auth.signInWithOtp` (magic link)                 |
 
 The card deck, drag, match modal and chat window are copied unchanged — the diff
 between the two files is exactly the "prototype → production" seam.

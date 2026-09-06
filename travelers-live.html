@@ -1,193 +1,318 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Meet Travellers (live) — Undiscovered Macedonia</title>
-<meta name="description" content="The production version of Meet Travellers: real accounts, database, live matches and chat, backed by Supabase." />
-<meta name="robots" content="noindex" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Epilogue:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="travelers.css" />
-</head>
-<body class="subpage">
-<a class="skip-link" href="#main">Skip to content</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meet Travellers (live) — Undiscovered Macedonia</title>
+    <meta
+      name="description"
+      content="The production version of Meet Travellers: real accounts, database, live matches and chat, backed by Supabase."
+    />
+    <meta name="robots" content="noindex" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E%E2%9C%88%EF%B8%8F%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Epilogue:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="travelers.css" />
+  </head>
+  <body class="subpage">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header scrolled" id="siteHeader">
-  <div class="wrap header-inner">
-    <a class="brand" href="index.html">
-      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 3.5c-1-.9-3.2-.5-5.5 1L4 3 2.5 4.6 10 9l-3 4-3.5-.5L2 14.4 6 17l2.6 4 1.9-1.5-.5-3.6 4-3 4.4 7.5L24 16l-1.5-12.5c.02-.02.03-.03 0 0Z" fill="currentColor"/></svg>
-      <span>Undiscovered&nbsp;Macedonia</span>
-    </a>
-    <nav class="main-nav" id="mainNav" aria-label="Primary">
-      <a href="explore.html">Explore</a>
-      <a href="trips.html">Trips</a>
-      <a href="travelers.html" aria-current="page">Travellers</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#plan" class="nav-plan">Plan a trip</a>
-    </nav>
-    <a href="index.html#plan" class="btn btn-pill header-cta">
-      Plan a trip
-      <span class="btn-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-    </a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<main id="main" class="tv-main">
-  <div class="wrap">
-    <header class="tv-head">
-      <p class="eyebrow">Meet Travellers</p>
-      <h1 class="tv-title">Find people<br />to explore with</h1>
-      <p class="tv-sub">
-        Tell us your interests and when you're in Macedonia, then swipe through other
-        travellers here at the same time. Match to start a chat and plan something together.
-      </p>
-      <p class="tv-demo">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="8" r="1" fill="currentColor"/></svg>
-        <span>Live version — real accounts and database (Supabase). The <a class="text-link" href="travelers.html">offline prototype</a> needs no sign-in.</span>
-      </p>
-      <p><button id="signOutBtn" class="btn tv-ghost" hidden>Sign out</button></p>
+    <header class="site-header scrolled" id="siteHeader">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M22 3.5c-1-.9-3.2-.5-5.5 1L4 3 2.5 4.6 10 9l-3 4-3.5-.5L2 14.4 6 17l2.6 4 1.9-1.5-.5-3.6 4-3 4.4 7.5L24 16l-1.5-12.5c.02-.02.03-.03 0 0Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>Undiscovered&nbsp;Macedonia</span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Primary">
+          <a href="explore.html">Explore</a>
+          <a href="trips.html">Trips</a>
+          <a href="travelers.html" aria-current="page">Travellers</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#plan" class="nav-plan">Plan a trip</a>
+        </nav>
+        <a href="index.html#plan" class="btn btn-pill header-cta">
+          Plan a trip
+          <span class="btn-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M5 12h14M13 6l6 6-6 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </header>
 
-    <!-- Sign-in gate -->
-    <section class="tv-panel" id="authGate" hidden aria-label="Sign in">
-      <h2>Sign in to meet travellers</h2>
-      <p class="tv-sub">Leave the password blank to get a one-time link by email. Or set a password to sign in instantly (an account is created if it's new).</p>
-      <form id="authForm" class="tv-form">
-        <label>Email
-          <input type="email" id="authEmail" name="email" required autocomplete="email" placeholder="you@example.com" />
-        </label>
-        <label>Password <span style="color:var(--moss);font-weight:500">(optional)</span>
-          <input type="password" id="authPass" name="password" autocomplete="current-password" minlength="6" placeholder="leave blank for a magic link" />
-        </label>
-        <button type="submit" class="btn btn-solid">Continue</button>
-        <p class="tv-formmsg" id="authMsg" role="status"></p>
-      </form>
-    </section>
+    <main id="main" class="tv-main">
+      <div class="wrap">
+        <header class="tv-head">
+          <p class="eyebrow">Meet Travellers</p>
+          <h1 class="tv-title">Find people<br />to explore with</h1>
+          <p class="tv-sub">
+            Tell us your interests and when you're in Macedonia, then swipe through other travellers
+            here at the same time. Match to start a chat and plan something together.
+          </p>
+          <p class="tv-demo">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" />
+              <path d="M12 11v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <circle cx="12" cy="8" r="1" fill="currentColor" />
+            </svg>
+            <span
+              >Live version — real accounts and database (Supabase). The
+              <a class="text-link" href="travelers.html">offline prototype</a> needs no
+              sign-in.</span
+            >
+          </p>
+          <p><button id="signOutBtn" class="btn tv-ghost" hidden>Sign out</button></p>
+        </header>
 
-    <div class="tv-layout" id="tvApp" hidden>
-      <!-- PROFILE -->
-      <section class="tv-panel" id="profilePanel" aria-label="Your profile">
-        <h2>Your profile</h2>
-        <form id="profileForm" class="tv-form">
-          <label>Name
-            <input type="text" name="name" required maxlength="30" placeholder="e.g. Alex" />
-          </label>
-          <label>Home country
-            <input type="text" name="country" required maxlength="30" placeholder="e.g. Germany" />
-          </label>
-          <div class="tv-row">
-            <label>Age
-              <input type="number" name="age" min="16" max="99" placeholder="27" />
+        <!-- Sign-in gate -->
+        <section class="tv-panel" id="authGate" hidden aria-label="Sign in">
+          <h2>Sign in to meet travellers</h2>
+          <p class="tv-sub">
+            Leave the password blank to get a one-time link by email. Or set a password to sign in
+            instantly (an account is created if it's new).
+          </p>
+          <form id="authForm" class="tv-form">
+            <label
+              >Email
+              <input
+                type="email"
+                id="authEmail"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="you@example.com"
+              />
             </label>
-            <label>Travel pace
-              <select name="pace">
-                <option value="Relaxed">Relaxed</option>
-                <option value="Balanced" selected>Balanced</option>
-                <option value="Fast">Fast &amp; full</option>
-              </select>
+            <label
+              >Password <span style="color: var(--moss); font-weight: 500">(optional)</span>
+              <input
+                type="password"
+                id="authPass"
+                name="password"
+                autocomplete="current-password"
+                minlength="6"
+                placeholder="leave blank for a magic link"
+              />
             </label>
+            <button type="submit" class="btn btn-solid">Continue</button>
+            <p class="tv-formmsg" id="authMsg" role="status"></p>
+          </form>
+        </section>
+
+        <div class="tv-layout" id="tvApp" hidden>
+          <!-- PROFILE -->
+          <section class="tv-panel" id="profilePanel" aria-label="Your profile">
+            <h2>Your profile</h2>
+            <form id="profileForm" class="tv-form">
+              <label
+                >Name
+                <input type="text" name="name" required maxlength="30" placeholder="e.g. Alex" />
+              </label>
+              <label
+                >Home country
+                <input
+                  type="text"
+                  name="country"
+                  required
+                  maxlength="30"
+                  placeholder="e.g. Germany"
+                />
+              </label>
+              <div class="tv-row">
+                <label
+                  >Age
+                  <input type="number" name="age" min="16" max="99" placeholder="27" />
+                </label>
+                <label
+                  >Travel pace
+                  <select name="pace">
+                    <option value="Relaxed">Relaxed</option>
+                    <option value="Balanced" selected>Balanced</option>
+                    <option value="Fast">Fast &amp; full</option>
+                  </select>
+                </label>
+              </div>
+              <div class="tv-row">
+                <label
+                  >In Macedonia from
+                  <input type="date" name="from" />
+                </label>
+                <label
+                  >until
+                  <input type="date" name="to" />
+                </label>
+              </div>
+              <fieldset class="tv-interests">
+                <legend>Interests <span id="interestCount">(pick a few)</span></legend>
+                <div class="tv-chips" id="interestChips"></div>
+              </fieldset>
+              <label
+                >Short bio
+                <textarea
+                  name="bio"
+                  maxlength="180"
+                  rows="2"
+                  placeholder="What are you hoping to do here?"
+                ></textarea>
+              </label>
+              <button type="submit" class="btn btn-solid">Save &amp; start matching</button>
+              <p class="tv-formmsg" id="profileMsg" role="status"></p>
+            </form>
+          </section>
+
+          <!-- DISCOVER / MATCHES -->
+          <section class="tv-panel tv-discover" aria-label="Discover travellers">
+            <div class="tv-tabs" role="tablist">
+              <button role="tab" id="tabDiscover" aria-selected="true" class="tv-tab is-active">
+                Discover
+              </button>
+              <button role="tab" id="tabMatches" aria-selected="false" class="tv-tab">
+                Matches <span id="matchCount" class="tv-badge" hidden>0</span>
+              </button>
+            </div>
+
+            <div id="discoverView" class="tv-view">
+              <div id="deck" class="tv-deck" aria-live="polite">
+                <p class="tv-empty" id="deckLocked">Save your profile to see other travellers.</p>
+              </div>
+              <div class="tv-actions" id="deckActions" hidden>
+                <button class="tv-btn tv-skip" id="btnSkip" aria-label="Skip">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M6 6l12 12M18 6L6 18"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+                <button class="tv-btn tv-connect" id="btnConnect" aria-label="Connect">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 20s-7-4.4-9.2-8.6C1.3 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.3C10.7 6.2 12 5 14 5c3.4 0 4.7 3.6 3.2 6.4C19 15.6 12 20 12 20Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p class="tv-hint" id="deckHint" hidden>← Skip · → Connect · or use the buttons</p>
+            </div>
+
+            <div id="matchesView" class="tv-view" hidden>
+              <ul class="tv-matchlist" id="matchList"></ul>
+              <p class="tv-empty" id="noMatches">
+                No matches yet. Connect with someone in Discover.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Match modal -->
+      <div
+        class="tv-modal"
+        id="matchModal"
+        hidden
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="matchModalTitle"
+      >
+        <div class="tv-modal-card">
+          <p class="tv-modal-kicker">It's a match</p>
+          <h2 id="matchModalTitle">You and <span id="matchName">—</span> both connected</h2>
+          <p id="matchShared" class="tv-modal-shared"></p>
+          <div class="tv-modal-actions">
+            <button class="btn btn-solid" id="matchMessage">Send a message</button>
+            <button class="btn tv-ghost" id="matchKeep">Keep swiping</button>
           </div>
-          <div class="tv-row">
-            <label>In Macedonia from
-              <input type="date" name="from" />
-            </label>
-            <label>until
-              <input type="date" name="to" />
-            </label>
+        </div>
+      </div>
+
+      <!-- Chat drawer -->
+      <div
+        class="tv-chat"
+        id="chatDrawer"
+        hidden
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="chatWith"
+      >
+        <div class="tv-chat-head">
+          <button class="tv-chat-back" id="chatBack" aria-label="Back to matches">‹</button>
+          <span class="tv-avatar" id="chatAvatar"></span>
+          <div>
+            <div class="tv-chat-name" id="chatWith">—</div>
+            <div class="tv-chat-meta" id="chatMeta">—</div>
           </div>
-          <fieldset class="tv-interests">
-            <legend>Interests <span id="interestCount">(pick a few)</span></legend>
-            <div class="tv-chips" id="interestChips"></div>
-          </fieldset>
-          <label>Short bio
-            <textarea name="bio" maxlength="180" rows="2" placeholder="What are you hoping to do here?"></textarea>
-          </label>
-          <button type="submit" class="btn btn-solid">Save &amp; start matching</button>
-          <p class="tv-formmsg" id="profileMsg" role="status"></p>
+        </div>
+        <div class="tv-chat-log" id="chatLog" aria-live="polite"></div>
+        <form class="tv-chat-form" id="chatForm">
+          <input
+            type="text"
+            id="chatInput"
+            autocomplete="off"
+            placeholder="Message…"
+            aria-label="Message"
+          />
+          <button type="submit" aria-label="Send">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="m4 12 16-8-6 16-3-7-7-1Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </form>
-      </section>
-
-      <!-- DISCOVER / MATCHES -->
-      <section class="tv-panel tv-discover" aria-label="Discover travellers">
-        <div class="tv-tabs" role="tablist">
-          <button role="tab" id="tabDiscover" aria-selected="true" class="tv-tab is-active">Discover</button>
-          <button role="tab" id="tabMatches" aria-selected="false" class="tv-tab">Matches <span id="matchCount" class="tv-badge" hidden>0</span></button>
-        </div>
-
-        <div id="discoverView" class="tv-view">
-          <div id="deck" class="tv-deck" aria-live="polite">
-            <p class="tv-empty" id="deckLocked">Save your profile to see other travellers.</p>
-          </div>
-          <div class="tv-actions" id="deckActions" hidden>
-            <button class="tv-btn tv-skip" id="btnSkip" aria-label="Skip">
-              <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-            </button>
-            <button class="tv-btn tv-connect" id="btnConnect" aria-label="Connect">
-              <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.3C10.7 6.2 12 5 14 5c3.4 0 4.7 3.6 3.2 6.4C19 15.6 12 20 12 20Z" fill="currentColor"/></svg>
-            </button>
-          </div>
-          <p class="tv-hint" id="deckHint" hidden>← Skip · → Connect · or use the buttons</p>
-        </div>
-
-        <div id="matchesView" class="tv-view" hidden>
-          <ul class="tv-matchlist" id="matchList"></ul>
-          <p class="tv-empty" id="noMatches">No matches yet. Connect with someone in Discover.</p>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <!-- Match modal -->
-  <div class="tv-modal" id="matchModal" hidden role="dialog" aria-modal="true" aria-labelledby="matchModalTitle">
-    <div class="tv-modal-card">
-      <p class="tv-modal-kicker">It's a match</p>
-      <h2 id="matchModalTitle">You and <span id="matchName">—</span> both connected</h2>
-      <p id="matchShared" class="tv-modal-shared"></p>
-      <div class="tv-modal-actions">
-        <button class="btn btn-solid" id="matchMessage">Send a message</button>
-        <button class="btn tv-ghost" id="matchKeep">Keep swiping</button>
       </div>
-    </div>
-  </div>
+    </main>
 
-  <!-- Chat drawer -->
-  <div class="tv-chat" id="chatDrawer" hidden role="dialog" aria-modal="true" aria-labelledby="chatWith">
-    <div class="tv-chat-head">
-      <button class="tv-chat-back" id="chatBack" aria-label="Back to matches">‹</button>
-      <span class="tv-avatar" id="chatAvatar"></span>
-      <div>
-        <div class="tv-chat-name" id="chatWith">—</div>
-        <div class="tv-chat-meta" id="chatMeta">—</div>
+    <footer class="site-footer">
+      <div class="wrap footer-bottom" style="border: 0; padding-top: 0">
+        <p>
+          © <span id="year">2026</span> Undiscovered Macedonia — a student project.
+          <a href="credits.html" class="text-link">Credits</a>
+        </p>
+        <a href="index.html" class="text-link">← Home</a>
       </div>
-    </div>
-    <div class="tv-chat-log" id="chatLog" aria-live="polite"></div>
-    <form class="tv-chat-form" id="chatForm">
-      <input type="text" id="chatInput" autocomplete="off" placeholder="Message…" aria-label="Message" />
-      <button type="submit" aria-label="Send">
-        <svg viewBox="0 0 24 24"><path d="m4 12 16-8-6 16-3-7-7-1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-      </button>
-    </form>
-  </div>
-</main>
+    </footer>
 
-<footer class="site-footer">
-  <div class="wrap footer-bottom" style="border:0;padding-top:0">
-    <p>© <span id="year">2026</span> Undiscovered Macedonia — a student project. <a href="credits.html" class="text-link">Credits</a></p>
-    <a href="index.html" class="text-link">← Home</a>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-<script src="travelers-config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/dist/umd/supabase.js"></script>
-<script src="travelers-live.js"></script>
-</body>
+    <script src="script.js"></script>
+    <script src="travelers-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/dist/umd/supabase.js"></script>
+    <script src="travelers-live.js"></script>
+  </body>
 </html>
