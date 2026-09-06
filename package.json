@@ -1,0 +1,22 @@
+{
+  "name": "undiscovered-macedonia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Undiscovered Macedonia — a slow-travel guide to North Macedonia. Multi-page static site with the UMac AI assistant and a 'Meet Travellers' matching prototype. Bachelor thesis project.",
+  "author": "Ali Jusufi <alijusufi6@gmail.com>",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "node serve.js",
+    "proxy": "node ai-proxy/local-server-gemini.js",
+    "proxy:anthropic": "node ai-proxy/local-server.js",
+    "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{html,css,js,json,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "liveServer.settings.port": 4173,
+  "liveServer.settings.root": "/",
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "cSpell.words": [
+    "Ohrid", "Skopje", "Matka", "Mavrovo", "Bitola", "Kruševo", "Pelister",
+    "Galičica", "Tikveš", "Struga", "Tetovo", "Prilep", "Strumica", "Kratovo",
+    "Berovo", "Vevčani", "Stobi", "Kokino", "Kuklica", "Prespa", "Bigorski",
+    "Šarena", "Džamija", "kačkaval", "tavče", "gravče", "ajvar", "pastrmka",
+    "sirenje", "kebapi", "burek", "rakija", "mastika", "Vranec", "Temjanika",
+    "leaflet", "pptxgenjs", "localstorage"
+  ]
+}

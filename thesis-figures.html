@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thesis figures — Undiscovered Macedonia</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px 24px 80px;
+    background: #f0efe9;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #23221c;
+  }
+  .intro { max-width: 820px; margin: 0 auto 32px; }
+  .intro h1 { font-size: 1.4rem; margin: 0 0 8px; }
+  .intro p { color: #55524a; font-size: 0.95rem; line-height: 1.5; margin: 0; }
+  .fig {
+    max-width: 820px;
+    margin: 0 auto 44px;
+    background: #fff;
+    border: 1px solid #d8d5c9;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .fig-cap {
+    font-size: 0.82rem; color: #55524a; padding: 10px 16px;
+    border-top: 1px solid #e6e3d8; background: #faf9f4;
+  }
+  .fig-cap b { color: #23221c; }
+
+  /* editor look for code */
+  .editor { background: #282c34; }
+  .editor-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 14px; background: #21252b; border-bottom: 1px solid #181a1f;
+  }
+  .editor-bar .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r{background:#ec6a5e}.dot.y{background:#f4bf4f}.dot.g{background:#61c554}
+  .editor-bar .file { margin-left: 10px; color: #9da5b4; font-size: 0.8rem; font-family: Consolas, monospace; }
+  pre { margin: 0; }
+  pre code.hljs {
+    display: block; padding: 18px 20px;
+    font-family: Consolas, "SF Mono", Menlo, monospace;
+    font-size: 13px; line-height: 1.6;
+    background: #282c34;
+    overflow-x: auto;
+  }
+
+  /* diagram: tech stack tree */
+  .diagram { padding: 34px 28px; background: #fbfbf7; }
+  .tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .node {
+    background: #2c3d31; color: #f5f3ec;
+    padding: 10px 20px; border-radius: 10px; font-weight: 700; font-size: 0.95rem;
+    text-align: center;
+  }
+  .node.root { background: #1e2a22; font-size: 1.05rem; padding: 12px 26px; }
+  .branchline { width: 2px; height: 22px; background: #bcc3b3; }
+  .row { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+  .col { display: flex; flex-direction: column; align-items: center; }
+  .group {
+    border: 1.5px solid #bcc3b3; border-radius: 12px; padding: 14px 16px 16px;
+    background: #fff; min-width: 180px;
+  }
+  .group h4 {
+    margin: 0 0 10px; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #47624e; text-align: center;
+  }
+  .group ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .group li {
+    background: #eef0e9; border: 1px solid #dfe2d6; border-radius: 7px;
+    padding: 6px 10px; font-size: 0.83rem; text-align: center;
+  }
+
+  /* diagram: flow */
+  .flow { padding: 40px 24px; background: #fbfbf7; }
+  .flow-wrap { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .box {
+    background: #fff; border: 1.5px solid #2c3d31; border-radius: 10px;
+    padding: 10px 18px; font-size: 0.9rem; font-weight: 600; text-align: center; max-width: 320px;
+  }
+  .box.center { background: #2c3d31; color: #f5f3ec; }
+  .box.soft { border-color: #bcc3b3; font-weight: 500; color: #55524a; }
+  .arrow { width: 2px; height: 20px; background: #8e9e86; position: relative; }
+  .arrow::after {
+    content: ""; position: absolute; bottom: -1px; left: -4px;
+    border: 5px solid transparent; border-top-color: #8e9e86;
+  }
+  .split { display: flex; gap: 40px; align-items: flex-start; margin-top: 4px; }
+  .lane { display: flex; flex-direction: column; align-items: center; }
+  .lane-label { font-size: 0.75rem; color: #8a8578; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+  @media print { body { background: #fff; } .fig { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="intro">
+  <h1>Thesis figures</h1>
+  <p>Screenshot each card (Win + Shift + S) and paste it into the matching grey box in the Word document. Each card already includes its figure number; keep the caption that is in the document.</p>
+</div>
+
+<!-- FIGURE 1 -->
+<div class="fig">
+  <div class="diagram">
+    <div class="tree">
+      <div class="node root">Undiscovered Macedonia</div>
+      <div class="branchline"></div>
+      <div class="row">
+        <div class="col">
+          <div class="group">
+            <h4>Front end</h4>
+            <ul>
+              <li>HTML5</li><li>CSS3</li><li>JavaScript (no framework)</li>
+              <li>Leaflet + OpenStreetMap</li><li>Google Fonts — Anton, Epilogue</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="group">
+            <h4>Optional AI tier</h4>
+            <ul>
+              <li>Node.js proxy</li><li>Google Gemini API (gemini-3.6-flash)</li><li>web_search tool</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="group">
+            <h4>Client storage</h4>
+            <ul>
+              <li>Web Storage API</li><li>localStorage</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="group">
+            <h4>Tooling</h4>
+            <ul>
+              <li>Visual Studio Code</li><li>Git</li><li>Node.js dev server (serve.js)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fig-cap"><b>Figure 1.</b> Hierarchical structure of the technologies and tools used in Undiscovered Macedonia.</div>
+</div>
+
+<!-- FIGURE 2 -->
+<div class="fig">
+  <div class="flow">
+    <div class="flow-wrap">
+      <div class="box center">Visitor</div>
+      <div class="arrow"></div>
+      <div class="split">
+        <div class="lane">
+          <div class="lane-label">Browse</div>
+          <div class="box soft">Static pages<br>(5 HTML pages)</div>
+        </div>
+        <div class="lane">
+          <div class="lane-label">Ask</div>
+          <div class="box">UMac assistant</div>
+          <div class="arrow"></div>
+          <div class="split" style="gap:20px">
+            <div class="lane">
+              <div class="box soft">Proxy → Gemini<br>→ optional web search</div>
+            </div>
+            <div class="lane">
+              <div class="box soft">Built-in<br>knowledge base</div>
+            </div>
+          </div>
+        </div>
+        <div class="lane">
+          <div class="lane-label">Match</div>
+          <div class="box">Meet Travellers</div>
+          <div class="arrow"></div>
+          <div class="box soft">localStorage<br>(profile, swipes, chats)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fig-cap"><b>Figure 2.</b> How a visitor interacts with the three parts of the application.</div>
+</div>
+
+<!-- FIGURE 3 -->
+<div class="fig">
+  <div class="editor">
+    <div class="editor-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="file">script.js</span></div>
+<pre><code class="language-javascript">function localAnswer(text) {
+  var q = text.toLowerCase();
+  var best = null, bestScore = 0;
+  KB.forEach(function (entry) {
+    var score = 0;
+    entry.k.forEach(function (kw, i) {
+      if (q.indexOf(kw) !== -1) {
+        // first keyword = canonical name, weighted 4x
+        score += (i === 0 ? kw.length * 4 : kw.length);
+      }
+    });
+    if (score > bestScore) { bestScore = score; best = entry; }
+  });
+  return best ? best.a
+              : "I can only answer from a small built-in guide right now ...";
+}</code></pre>
+  </div>
+  <div class="fig-cap"><b>Figure 3.</b> The keyword-retrieval function that answers questions in offline mode (script.js).</div>
+</div>
+
+<!-- FIGURE 4 -->
+<div class="fig">
+  <div class="editor">
+    <div class="editor-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="file">script.js</span></div>
+<pre><code class="language-javascript">function respond(text) {
+  if (ASSISTANT_CONFIG.apiUrl) {
+    return fetch(ASSISTANT_CONFIG.apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: messages })
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error("proxy " + r.status);
+        return r.json();
+      })
+      .then(function (data) { return data.reply || localAnswer(text); })
+      .catch(function () { return localAnswer(text); });  // proxy down -> offline guide
+  }
+  // no proxy configured: offline answer after a short "thinking" delay
+  return new Promise(function (resolve) {
+    setTimeout(function () { resolve(localAnswer(text)); }, 400);
+  });
+}</code></pre>
+  </div>
+  <div class="fig-cap"><b>Figure 4.</b> respond() — the single point where the answer source is decided (script.js).</div>
+</div>
+
+<!-- FIGURE 5 -->
+<div class="fig">
+  <div class="editor">
+    <div class="editor-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="file">ai-proxy/local-server-gemini.js</span></div>
+<pre><code class="language-javascript">const payload = {
+  systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+  contents: contents,               // last 12 turns, roles "user" / "model"
+  generationConfig: { maxOutputTokens: 900 }
+};
+if (USE_WEB_SEARCH) payload.tools = [{ google_search: {} }];
+
+const r = await fetch(URL, {
+  method: "POST",
+  headers: { "content-type": "application/json", "x-goog-api-key": KEY },
+  body: JSON.stringify(payload)
+});
+const data = await r.json();
+const reply = (((data.candidates || [])[0] || {}).content || {}).parts
+  .map(function (p) { return p.text || ""; }).join("").trim();</code></pre>
+  </div>
+  <div class="fig-cap"><b>Figure 5.</b> The proxy request to the Gemini API, with the web-search tool as a switch (local-server-gemini.js).</div>
+</div>
+
+<!-- FIGURE 6 -->
+<div class="fig">
+  <div class="editor">
+    <div class="editor-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="file">travelers.js</span></div>
+<pre><code class="language-javascript">function decide(p, kind) {
+  seen[p.id] = kind;
+  LS.set(K_SEEN, seen);
+  queue = queue.filter(function (q) { return q.id !== p.id; });
+
+  var matched = false;
+  if (kind === "like") {
+    var sh = sharedInterests(p).length;
+    matched = sh >= 2 || Math.random() &lt; 0.35;
+    if (matched && matches.indexOf(p.id) === -1) {
+      matches.push(p.id);
+      LS.set(K_MATCHES, matches);
+      chats[p.id] = [{ from: "them", text: openingLine(p) }];
+      LS.set(K_CHATS, chats);
+    }
+  }
+  setTimeout(function () { renderDeck(); if (matched) showMatch(p); }, 260);
+}</code></pre>
+  </div>
+  <div class="fig-cap"><b>Figure 6.</b> decide() — records a swipe and, for a "connect", applies the prototype match rule (travelers.js).</div>
+</div>
+
+<!-- FIGURE 7 -->
+<div class="fig">
+  <div class="editor">
+    <div class="editor-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="file">script.js</span></div>
+<pre><code class="language-javascript">planForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  var ref = "UM-" + Date.now().toString(36).toUpperCase().slice(-6);
+  var entry = {
+    ref: ref, name: f.name.value.trim(), email: f.email.value.trim(),
+    when: f.when.value.trim(), days: f.days.value.trim(),
+    notes: f.notes.value.trim(), at: new Date().toISOString()
+  };
+  var all = store.get("um_enquiries", []);
+  all.push(entry);
+  store.set("um_enquiries", all);
+  document.getElementById("planMsg").textContent = "Saved as " + ref + " ...";
+  f.reset();
+});</code></pre>
+  </div>
+  <div class="fig-cap"><b>Figure 7.</b> The trip-enquiry handler, which stores the enquiry in the browser (script.js).</div>
+</div>
+
+<!-- FIGURE 15 (appendix D) -->
+<div class="fig">
+  <div class="editor">
+    <div class="editor-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="file">MATCHING-BACKEND.md  (Appendix D)</span></div>
+<pre><code class="language-sql">create table profiles (
+  id uuid primary key references auth.users on delete cascade,
+  name text not null, country text, age int,
+  pace text, from_date date, to_date date,
+  interests text[] not null default '{}', bio text
+);
+create table swipes (
+  swiper uuid references profiles(id), target uuid references profiles(id),
+  liked boolean not null, primary key (swiper, target)
+);
+create table matches (
+  a uuid references profiles(id), b uuid references profiles(id),
+  primary key (a, b), check (a &lt; b)
+);
+
+-- a mutual "like" becomes a match automatically
+create function on_swipe() returns trigger as $$
+begin
+  if new.liked and exists (
+    select 1 from swipes
+    where swiper = new.target and target = new.swiper and liked
+  ) then
+    insert into matches (a, b)
+    values (least(new.swiper, new.target), greatest(new.swiper, new.target))
+    on conflict do nothing;
+  end if;
+  return new;
+end; $$ language plpgsql;</code></pre>
+  </div>
+  <div class="fig-cap"><b>Figure 15.</b> Condensed Supabase schema and the mutual-like trigger for a production Meet Travellers.</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

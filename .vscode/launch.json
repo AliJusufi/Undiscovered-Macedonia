@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Dev server (serve.js)",
+      "program": "${workspaceFolder}/serve.js",
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "AI proxy (Gemini)",
+      "program": "${workspaceFolder}/ai-proxy/local-server-gemini.js",
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal",
+      "env": {
+        "GEMINI_API_KEY": "${env:GEMINI_API_KEY}"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Site + AI proxy",
+      "configurations": ["Dev server (serve.js)", "AI proxy (Gemini)"]
+    }
+  ]
+}
