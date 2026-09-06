@@ -46,16 +46,32 @@ function, and enables realtime.
 
 Both are safe to commit — the anon key can only do what the RLS policies allow.
 
-## 5. Test it
+## 5. Seed some demo travellers
+
+So discovery and screenshots don't show `a@test.com`, create ~6 realistic
+accounts in one go:
+
+```powershell
+$env:SUPABASE_URL = "https://enpzsvxtdpjsqpirzmub.supabase.co"
+$env:SUPABASE_SERVICE_ROLE_KEY = "<service_role key from Settings -> API>"
+npm run seed
+```
+
+This creates Lena, Marco, Priya, Tom, Sofia and Amara with overlapping
+interests and travel dates, all confirmed, all with the password
+`traveller2026`. Re-running just refreshes their profiles.
+
+The **service_role key bypasses security** — only use it in this local
+command, never in a file the browser loads and never in git.
+
+## 6. Test it
 
 1. `npm run dev`, open <http://localhost:4173/travelers-live.html>.
-2. Enter your email → check inbox → click the link → you're signed in.
-3. Fill your profile and save.
-4. **To see a match**, you need a second account. Easiest: open the page in a
-   private/incognito window, sign in with a different email, make a second
-   profile with overlapping interests and dates, and Connect with your first
-   profile. Then Connect back from the first window — the match modal and the
-   chat should appear live in both.
+2. Sign in as `lena@demo.undiscovered` / `traveller2026` (password field), or
+   use your own email with the password blank to get a magic link.
+3. Fill your profile and save — the seeded travellers appear in the deck.
+4. **To see a match**, sign in as one of them in a private/incognito window
+   and Connect back. The match modal and chat appear live in both.
 
 ---
 
