@@ -59,12 +59,15 @@
     <!-- Sign-in gate -->
     <section class="tv-panel" id="authGate" hidden aria-label="Sign in">
       <h2>Sign in to meet travellers</h2>
-      <p class="tv-sub">We'll email you a one-time link — no password.</p>
+      <p class="tv-sub">Leave the password blank to get a one-time link by email. Or set a password to sign in instantly (an account is created if it's new).</p>
       <form id="authForm" class="tv-form">
         <label>Email
           <input type="email" id="authEmail" name="email" required autocomplete="email" placeholder="you@example.com" />
         </label>
-        <button type="submit" class="btn btn-solid">Email me a sign-in link</button>
+        <label>Password <span style="color:var(--moss);font-weight:500">(optional)</span>
+          <input type="password" id="authPass" name="password" autocomplete="current-password" minlength="6" placeholder="leave blank for a magic link" />
+        </label>
+        <button type="submit" class="btn btn-solid">Continue</button>
         <p class="tv-formmsg" id="authMsg" role="status"></p>
       </form>
     </section>
@@ -184,7 +187,7 @@
 
 <script src="script.js"></script>
 <script src="travelers-config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/dist/umd/supabase.js"></script>
 <script src="travelers-live.js"></script>
 </body>
 </html>

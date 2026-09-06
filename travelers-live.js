@@ -79,13 +79,37 @@
   /* ================= auth ================= */
   var authForm = $("#authForm");
   var authEmail = $("#authEmail");
+  var authPass = $("#authPass");
   var authMsg = $("#authMsg");
   var signOutBtn = $("#signOutBtn");
 
   authForm.addEventListener("submit", function (e) {
     e.preventDefault();
     var email = authEmail.value.trim();
+    var pass = authPass ? authPass.value : "";
     if (!email) return;
+
+    // With a password: sign in, or create the account if it's new.
+    // Without one: send a magic link.
+    if (pass) {
+      authMsg.textContent = "Signing in…";
+      sb.auth.signInWithPassword({ email: email, password: pass }).then(function (res) {
+        if (!res.error) return; // onAuthStateChange takes over
+        if (/invalid login credentials/i.test(res.error.message)) {
+          sb.auth.signUp({ email: email, password: pass }).then(function (up) {
+            authMsg.textContent = up.error
+              ? "Couldn't sign up: " + up.error.message
+              : up.data.session
+                ? "Account created."
+                : "Account created — check your email to confirm, then sign in.";
+          });
+        } else {
+          authMsg.textContent = res.error.message;
+        }
+      });
+      return;
+    }
+
     authMsg.textContent = "Sending…";
     sb.auth
       .signInWithOtp({ email: email, options: { emailRedirectTo: location.href.split("#")[0] } })
