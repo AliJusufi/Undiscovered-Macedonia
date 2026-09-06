@@ -91,6 +91,15 @@ alter table public.swipes   enable row level security;
 alter table public.matches  enable row level security;
 alter table public.messages enable row level security;
 
+-- Make sure the API roles can reach the tables at all (RLS above still gates
+-- every row). This keeps setup working whether or not "expose new tables" was
+-- ticked when the project was created.
+grant usage on schema public to anon, authenticated;
+grant select, insert, update, delete on
+  public.profiles, public.swipes, public.matches, public.messages
+  to authenticated;
+grant execute on function public.discover_profiles(int) to authenticated;
+
 -- profiles: any signed-in user can read; you may only write your own row
 drop policy if exists "profiles read"      on public.profiles;
 drop policy if exists "profiles write own" on public.profiles;
